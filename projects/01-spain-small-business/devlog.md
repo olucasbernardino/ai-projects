@@ -41,3 +41,23 @@ Append-only. Never delete or rewrite an entry; add a new one to correct it.
 **Next step:** create the board, then download the first Eurostat dataset.
 
 **Time spent:** about 1 hour
+
+---
+
+## 2026-11-10: Board created
+
+**What I did:**
+- Created the GitHub Projects board "AI Projects Portfolio" with columns Todo,
+  In Progress, In review, Done. It imports every open issue of this repository.
+- 11 tasks for Project 01 created as GitHub issues, grouped under the milestone
+  "Project 01: Spain vs EU small businesses" (due 2026-12-01).
+
+**Which AI helped and how:**
+- Claude: created the tasks through GitHub's API and the board in my Chrome, with
+  my approval; opened this change as a pull request for me to review.
+
+**What went wrong / what surprised me:**
+- GitHub does not let this AI session create boards through its API, so the board
+  was created by clicking through the website instead.
+
+**Next step:** review and merge this pull request (my first one).
