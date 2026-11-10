@@ -18,7 +18,7 @@ Every project here follows three promises:
 ## How the work is done
 
 Each project runs the same cycle: **plan → build → verify → log → publish**.
-Tasks live on this repository's GitHub Projects board. Changes arrive as pull
+Tasks live on the [project board](https://github.com/users/olucasbernardino/projects/3). Changes arrive as pull
 requests and are checked against the [verification checklist](docs/verification-checklist.md).
 
 ## AI use
