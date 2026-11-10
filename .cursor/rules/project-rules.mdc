@@ -1,0 +1,14 @@
+---
+description: "Core rules for every task in this portfolio repository"
+alwaysApply: true
+---
+
+Read and follow AGENTS.md in the repository root before doing anything.
+
+The most important limits, repeated here:
+- Never commit to main. Create a branch named ai/cursor/<short-task> and open a pull request.
+- Never invent numbers or sources. Every figure must trace to a row in the project's sources.md.
+- Never edit files in data/raw/.
+- Never delete or rewrite devlog.md entries; only add new dated entries.
+- Write TODO-VERIFY: next to anything not yet checked.
+- Explain changes in plain language; the owner is a beginner and learning.

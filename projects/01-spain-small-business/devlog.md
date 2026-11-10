@@ -1,0 +1,43 @@
+# Dev log: Small businesses in Spain vs the EU
+
+Append-only. Never delete or rewrite an entry; add a new one to correct it.
+
+---
+
+## 2026-11-10: Planning and setup
+
+**Goal for this session:** define the portfolio's goal and choose project #1.
+
+**What I did:**
+- Defined the portfolio goal with Claude through a question-by-question session.
+- Chose the tools: GitHub for the board, dev log and proof of work; GitHub Pages
+  for the portfolio and blog. Linear, Notion and Trello were considered and set aside.
+- Chose project #1: a public data report on small businesses, Spain vs EU average.
+- Created this repository and its rules for AI assistants (`AGENTS.md`).
+
+**Which AI helped and how:**
+- Claude: asked the planning questions, recommended options with reasons, checked
+  current free-plan limits and Eurostat dataset availability on the web, and wrote
+  the repository setup files.
+
+**What went wrong / what surprised me:**
+- On the first question I clicked the wrong answer and had to ask again.
+- I planned to use Linear, then changed my mind; switched to GitHub.
+- GitHub's "review before merge" protection is not available on private
+  repositories with a free plan, so for now that rule depends on discipline.
+- Lovable cannot connect to an existing repository, so any Lovable app will need
+  its own repository.
+
+**Verified:**
+- Eurostat publishes comparable data for all five indicators (structural business
+  statistics by size class; business demography with birth, death and survival
+  rates). Checked on Eurostat's own pages by Claude. Dataset codes still to be
+  confirmed at download time. TODO-VERIFY: exact dataset codes and latest year.
+
+**Decisions:**
+- Start narrow, build wide: Spain vs EU first, more countries later.
+- Other AIs propose changes through pull requests; I approve before anything lands.
+
+**Next step:** create the board, then download the first Eurostat dataset.
+
+**Time spent:** about 1 hour
