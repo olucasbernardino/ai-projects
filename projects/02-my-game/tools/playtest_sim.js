@@ -75,6 +75,8 @@ function play(bot) {
   return { kind: r.kind, msg: r.msg, turn: g.turn, short, idx, freedom: g.freedom, picks };
 }
 
+module.exports = { m, EVENTS, applyChoice, BOTS, setPlan, pickChoice };
+if (require.main === module) {
 const out = {};
 for (const [name, bot] of Object.entries(BOTS)) {
   const res = Array.from({ length: N }, () => play(bot));
@@ -90,3 +92,4 @@ for (const [name, bot] of Object.entries(BOTS)) {
 }
 console.log(`games per bot: ${N}`);
 console.table(out);
+}
