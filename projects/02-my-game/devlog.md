@@ -115,3 +115,29 @@ Append-only. Never delete or rewrite an entry; add a new one to correct it.
 **Next step:** owner chooses which findings to fix in v0.3.
 
 **Time spent:** ~30 minutes (AI session)
+
+---
+
+## 2026-11-11: Lessons report and plan to measure reality
+
+**Goal for this session:** write up what the tests taught us and how the game could collect real data about 2026.
+
+**What I did:**
+- Wrote the report as a shared Claude Doc ("O Arquiteto — What We Learned and How to Measure Reality"), kept outside the repo.
+
+**Which AI helped and how:**
+- Claude: wrote the report and the roadmap drawing.
+
+**What went wrong / what surprised me:**
+- The main lesson: the current game can say nothing about the real world, because all its numbers are invented. Real data needs real players, consent and published surveys.
+
+**Verified:**
+- Test numbers in the report match `docs/playtest-report-v0.2.md`.
+- Not verified: the candidate survey sources are named from memory and marked TODO-VERIFY; no figure from them was used.
+
+**Decisions:**
+- None yet; four decisions are listed for the owner in the report.
+
+**Next step:** owner answers the report's decisions; then v0.3 balance fixes.
+
+**Time spent:** ~30 minutes (AI session)
