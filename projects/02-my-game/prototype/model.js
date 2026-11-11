@@ -4,16 +4,20 @@
 // Payoff U_i = base_i + lever effects - CROWD * x_i  (crowding guarantees a mix).
 // Levers marked `prestige: true` are paid from ONE shared prestige pool.
 
-const CROWD = 1.0, DT = 0.25, SUBSTEPS = 8, B = 2, WIN = 0.30, BUDGET = 22, TURNS = 30;
-const PRESTIGE_START = 20, PRESTIGE_INCOME = 24, REBEL_MAX = 0.20;
+const CROWD = 1.0, DT = 0.25, SUBSTEPS = 8, B = 2, WIN = 0.30, TURNS = 30;
+const PRESTIGE_START = 20, REBEL_MAX = 0.20;
+// Tunable balance settings, chosen by tools/autotune.js against its TARGETS. Design values, not data.
+const P = { budget: 22, income: 26, eventScale: 0.4, push1: 0.25, push2: 0.3, push3div: 0.35, push3reb: 0.25, rebelBore: 2.4, rebelOff: 0.6, confBase: 0.65, frontierGain: 0.7, capCoef: 23, punishFree: 2.5 };
+let BUDGET = P.budget;
+function setParams(o) { Object.assign(P, o); BUDGET = P.budget; }
 // v0.3: each slider level costs more than the last (level 5 = 8 points in total).
 const COST = [0, 1, 2, 3, 5, 8];
-const EVENT_SCALE = 0.4, FRONTIER_CAP = 0.35, ORDER_FREEDOM = 30;
+const FRONTIER_CAP = 0.35, ORDER_FREEDOM = 30;
 // v0.3: the world changes every 10 generations, pushing a different crisis (index = era).
 const ERAS = [
-  { name: 'Era da Abundância', text: 'A IA gera arte e entretenimento infinitos: a vida passiva fica mais tentadora.', push: { s1: 0.25 } },
-  { name: 'Era da Conveniência', text: 'Assistentes pessoais decidem quase tudo: delegar fica mais fácil que nunca.', push: { s2: 0.25 } },
-  { name: 'Era do Tédio', text: 'Uma geração que nunca conheceu a escassez busca sentido no conformismo ou no caos.', push: { s3: 0.3, s4: 0.25 } },
+  { name: 'Era da Abundância', text: 'A IA gera arte e entretenimento infinitos: a vida passiva fica mais tentadora.', get push() { return { s1: P.push1 }; } },
+  { name: 'Era da Conveniência', text: 'Assistentes pessoais decidem quase tudo: delegar fica mais fácil que nunca.', get push() { return { s2: P.push2 }; } },
+  { name: 'Era do Tédio', text: 'Uma geração que nunca conheceu a escassez busca sentido no conformismo ou no caos.', get push() { return { s3: P.push3div, s4: P.push3reb }; } },
 ];
 
 const SCEN = [
@@ -40,9 +44,9 @@ const SCEN = [
     levers: [{ id: 'punish', name: 'Vigilância e punição', freedomCost: true }, { id: 'prestige', name: 'Prestígio da Zona de Fronteira', prestige: true }],
     // Based on the owner's Scenario 4 payoffs, rescaled to the lever range.
     // v0.3: the Frontier is a closed ecosystem with limited room.
-    pay: (x, l) => [B + 0.7 - 1.5 * x[2],
-                    B + 0.7 * l.prestige - 0.5 - 20 * Math.max(0, x[1] - FRONTIER_CAP),
-                    B + 2.4 * (1 - l.meaning) - 0.6 - (0.1 + 1.2 * x[2]) * l.punish] },
+    pay: (x, l) => [B + P.confBase - 1.5 * x[2],
+                    B + P.frontierGain * l.prestige - 0.5 - P.capCoef * Math.max(0, x[1] - FRONTIER_CAP),
+                    B + P.rebelBore * (1 - l.meaning) - P.rebelOff - (0.1 + 1.2 * x[2]) * l.punish] },
 ];
 
 // S4 index is "not rebels"; others measure the healthy strategy share.
@@ -65,7 +69,7 @@ function newGame() {
 
 // Moves `amount` of population share from strategy `from` to strategy `to` (used by events).
 function shift(g, sid, from, to, amount) {
-  const x = g.pop[sid], d = Math.min(amount * EVENT_SCALE, x[from] - 0.01);
+  const x = g.pop[sid], d = Math.min(amount * P.eventScale, x[from] - 0.01);
   if (d > 0) { x[from] -= d; x[to] += d; }
 }
 
@@ -93,11 +97,11 @@ function step(g) {
   }
   // Prestige is earned by the people who create, deliberate, diverge and explore.
   const healthy = SCEN.reduce((a, s) => a + g.pop[s.id][1], 0) / SCEN.length;
-  g.prestige += PRESTIGE_INCOME * healthy * 2;
+  g.prestige += P.income * healthy * 2;
   const p = g.lev.s4.punish;
-  g.freedom = g.freedom - 3 * p + 2; // recovers 2/turn, punishment drains it
+  g.freedom = g.freedom - P.punishFree * p + 2; // recovers 2/turn, punishment drains it
   // v0.3: dark choices leave scars that keep hurting for several generations.
-  for (const sc of g.scars) { g.freedom -= sc.freedom; shift(g, 's1', 1, 0, sc.vitality / EVENT_SCALE); sc.left--; }
+  for (const sc of g.scars) { g.freedom -= sc.freedom; shift(g, 's1', 1, 0, sc.vitality / P.eventScale); sc.left--; }
   g.scars = g.scars.filter(sc => sc.left > 0);
   g.freedom = Math.max(0, Math.min(100, g.freedom));
   g.turn++;
@@ -124,4 +128,4 @@ function checkEnd(g) {
 }
 function end(g, kind, msg) { g.over = true; return { kind, win: kind === 'win', msg }; }
 
-if (typeof module !== 'undefined') module.exports = { COST, ERAS, era, spent, BUDGET, TURNS, SCEN, newGame, step, index, winLine, prestigeDemand, shift, checkEnd };
+if (typeof module !== 'undefined') module.exports = { P, setParams, get BUDGET() { return BUDGET; }, COST, ERAS, era, spent, TURNS, SCEN, newGame, step, index, winLine, prestigeDemand, shift, checkEnd };

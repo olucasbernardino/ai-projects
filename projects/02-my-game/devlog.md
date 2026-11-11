@@ -170,3 +170,32 @@ Append-only. Never delete or rewrite an entry; add a new one to correct it.
 **Next step:** owner plays v0.3 and decides on the tuning approach.
 
 **Time spent:** ~2 hours (AI session)
+
+---
+
+## 2026-11-11: Automated balance tuning (not yet fully verified)
+
+**Goal for this session:** replace hand-tuning with a search against written targets.
+
+**What I did:**
+- Moved the tunable numbers into one settings object `P` in `prototype/model.js` (behaviour unchanged: still 171 winning fixed plans).
+- Wrote `tools/autotune.js` with 7 targets (fixed plans almost never win, an adaptive player wins, events matter but don't decide, Frontier ≤ 45%, Freedom margin ≥ 50, idle loses by generation 6).
+- The search met every target at iteration 10; a re-check with 150 games per mode passed: fixed-plan wins 0.1%, era planner 100% with good choices and 59% with random choices, Frontier max 41%, mean Freedom 67.
+- Wrote those settings into `prototype/model.js`.
+
+**Which AI helped and how:**
+- Claude: wrote the tuner and ran it.
+
+**What went wrong / what surprised me:**
+- Hand-tuning failed for ~15 rounds; the written targets solved it in seconds. The tuner only fixes what is measured: the earlier Frontier problem was found by a screenshot, not a test.
+
+**Verified:**
+- Only by `tools/autotune.js` itself (a 3,000-plan sample, not all plans).
+- NOT yet verified: the full `balance_check.js`, `era_planner.js` and `playtest_sim.js` runs on these settings were stopped by the owner mid-run. The published test link still has the older v0.3 settings.
+
+**Decisions:**
+- None new; the owner paused to discuss what the tuning teaches.
+
+**Next step:** finish the full verification, then update the test link.
+
+**Time spent:** ~30 minutes (AI session)

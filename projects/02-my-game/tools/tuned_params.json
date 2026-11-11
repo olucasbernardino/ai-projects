@@ -1,0 +1,58 @@
+{
+ "params": {
+  "budget": 22,
+  "income": 26,
+  "eventScale": 0.4,
+  "push1": 0.25,
+  "push2": 0.3,
+  "push3div": 0.35,
+  "push3reb": 0.25,
+  "rebelBore": 2.4,
+  "rebelOff": 0.6,
+  "confBase": 0.65,
+  "frontierGain": 0.7,
+  "capCoef": 23,
+  "punishFree": 2.5
+ },
+ "check": {
+  "fixedWin": 0.001,
+  "plannerGood": 1,
+  "plannerRandom": 0.5933333333333334,
+  "frontierMax": 0.40576898014052365,
+  "freedomGood": 66.64,
+  "idleTurn": 4,
+  "eraPlans": [
+   [
+    3,
+    1,
+    5,
+    1,
+    4,
+    0,
+    2,
+    2
+   ],
+   [
+    3,
+    3,
+    4,
+    2,
+    3,
+    3,
+    1,
+    2
+   ],
+   [
+    3,
+    3,
+    3,
+    3,
+    4,
+    1,
+    1,
+    3
+   ]
+  ],
+  "score": 0
+ }
+}
