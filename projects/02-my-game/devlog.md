@@ -87,3 +87,31 @@ Append-only. Never delete or rewrite an entry; add a new one to correct it.
 **Next step:** owner playtests v0.2 and reports what feels too hard, too easy or boring.
 
 **Time spent:** ~1 hour (AI session)
+
+---
+
+## 2026-11-11: Automated playtests of v0.2
+
+**Goal for this session:** run hundreds of simulated games and draw conclusions.
+
+**What I did:**
+- Wrote `tools/playtest_sim.js`: 9 bot types × 500 games, plus a follow-up on missed goals and event choices. Report: `docs/playtest-report-v0.2.md`.
+
+**Which AI helped and how:**
+- Claude: wrote the bots, ran the games and wrote the report.
+
+**What went wrong / what surprised me:**
+- `events.js` uses a global `shift` that exists in the browser but not in Node; the simulator now provides it.
+- My "smart" event bot did worse than random choices: its one-turn lookahead is short-sighted. So the adaptive-bot numbers are a low estimate of a good human.
+- The repressive event choice outperforms the Frontier choice, against the game's message.
+
+**Verified:**
+- 4,500 + 2,000 simulated games; numbers in the report come straight from the script output.
+- Not verified: anything about fun or clarity. That needs human players.
+
+**Decisions:**
+- None yet; proposals go to the owner.
+
+**Next step:** owner chooses which findings to fix in v0.3.
+
+**Time spent:** ~30 minutes (AI session)
