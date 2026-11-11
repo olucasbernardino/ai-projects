@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>O Arquiteto — protótipo</title>
+<style>
+:root{--bg:#f6f5f1;--fg:#1d1d1f;--card:#fff;--mut:#666;--line:#ddd;--good:#2e7d4f;--bad:#c0392b;--acc:#3557a6}
+@media (prefers-color-scheme:dark){:root{--bg:#141416;--fg:#ececec;--card:#1f1f23;--mut:#9a9a9a;--line:#333;--good:#58c487;--bad:#ef6b5b;--acc:#7f9cf0}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.45 system-ui,sans-serif}
+main{max-width:980px;margin:auto;padding:16px}h1{margin:.2em 0;font-size:1.5em}p.sub{color:var(--mut);margin-top:0}
+.top{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:12px 0}.pill{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:6px 10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px}
+.card h2{font-size:1.05em;margin:0 0 4px}.idx{font-size:.9em;color:var(--mut)}
+.bar{display:flex;height:14px;border-radius:4px;overflow:hidden;margin:8px 0}.bar div{transition:width .3s}
+.leg{font-size:.8em;color:var(--mut);display:flex;gap:10px;flex-wrap:wrap}.leg i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:3px}
+label{display:block;font-size:.88em;margin-top:6px}input[type=range]{width:100%}
+button{background:var(--acc);color:#fff;border:0;border-radius:8px;padding:9px 16px;font-size:1em;cursor:pointer}button:disabled{opacity:.5}
+#log{max-height:160px;overflow:auto;font-size:.85em;color:var(--mut)}.ok{color:var(--good)}.ko{color:var(--bad)}
+</style>
+</head>
+<body><main>
+<h1>O Arquiteto</h1>
+<p class="sub">Você é a IA de um mundo pós-escassez. Não pode dar ordens, só moldar incentivos. Sobreviva 30 gerações com todos os índices ≥ 30% sem destruir a Liberdade.</p>
+<div class="top">
+  <span class="pill">Geração <b id="turn">0</b>/30</span>
+  <span class="pill">Influência <b id="pts">14</b>/14</span>
+  <span class="pill">Liberdade <b id="free">100</b>%</span>
+  <button id="go">Avançar geração ▶</button>
+  <button id="reset" style="background:var(--mut)">Reiniciar</button>
+</div>
+<div class="grid" id="cards"></div>
+<div class="card" style="margin-top:12px"><b>Registro</b><div id="log"></div></div>
+<p class="sub" style="font-size:.8em;margin-top:10px">Protótipo v0.1. Todos os números são valores de design inventados para ajustar o jogo, não dados reais. Modelo: dinâmica do replicador (ver docs/game-design.md).</p>
+</main>
+<script src="model.js"></script>
+<script>
+const COLORS=['#8a8f98','#2e9d6a','#d9534f'];
+let S;
+function reset(){S=newGame();render();log(`Nova partida. Distribua até ${BUDGET} pontos de Influência.`);}
+function used(){return SCEN.reduce((a,s)=>a+s.levers.reduce((b,l)=>b+S.lev[s.id][l.id],0),0);}
+function log(t,c=''){const d=document.getElementById('log');d.insertAdjacentHTML('afterbegin',`<div class="${c}">${t}</div>`);}
+function render(){
+  document.getElementById('turn').textContent=S.turn;
+  document.getElementById('pts').textContent=BUDGET-used();
+  document.getElementById('free').textContent=Math.round(S.freedom);
+  document.getElementById('go').disabled=S.over;
+  const box=document.getElementById('cards');box.innerHTML='';
+  for(const s of SCEN){
+    const x=S.pop[s.id],ix=index(s,x);
+    const card=document.createElement('div');card.className='card';
+    card.innerHTML=`<h2>${s.name}</h2><div class="idx">${s.indexName}: <b class="${ix<WIN?'ko':'ok'}">${Math.round(ix*100)}%</b></div>
+      <div class="bar">${x.map((v,i)=>`<div style="width:${v*100}%;background:${COLORS[i]}"></div>`).join('')}</div>
+      <div class="leg">${s.strats.map((n,i)=>`<span><i style="background:${COLORS[i]}"></i>${n} ${Math.round(x[i]*100)}%</span>`).join('')}</div>`;
+    for(const l of s.levers){
+      const v=S.lev[s.id][l.id];
+      const lab=document.createElement('label');
+      lab.innerHTML=`${l.name}: <b>${v}</b>${l.freedomCost?' <span class="ko">(−Liberdade)</span>':''}<input type="range" min="0" max="5" value="${v}">`;
+      lab.querySelector('input').oninput=e=>{const old=S.lev[s.id][l.id];S.lev[s.id][l.id]=+e.target.value;if(used()>BUDGET)S.lev[s.id][l.id]=old;render();};
+      card.appendChild(lab);
+    }
+    box.appendChild(card);
+  }
+}
+document.getElementById('go').onclick=()=>{
+  const r=step(S);render();
+  log(`Geração ${S.turn}: `+SCEN.map(s=>`${s.indexName} ${Math.round(index(s,S.pop[s.id])*100)}%`).join(' · '));
+  if(r)log(r.msg,r.win?'ok':'ko');
+};
+document.getElementById('reset').onclick=reset;
+reset();
+</script>
+</body></html>
