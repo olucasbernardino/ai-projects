@@ -33,3 +33,28 @@ Append-only. Never delete or rewrite an entry; add a new one to correct it.
 **Next step:** owner playtests and answers the open questions in `docs/game-design.md` §6.
 
 **Time spent:** ~1 hour (AI session)
+
+---
+
+## 2026-11-11: Owner decisions after first prototype
+
+**Goal for this session:** record the owner's answers to the open design questions.
+
+**What I did:**
+- Logged four decisions in `docs/game-design.md` §7 (shared prestige, dark path allowed, citizen events next, Rebels < 20% for stability).
+
+**Which AI helped and how:**
+- Claude: asked the questions and recorded answers. The owner left the stability rule to Claude, which chose Rebels < 20% to match the original notes.
+
+**What went wrong / what surprised me:**
+- Nothing yet; these change the model, so the current prototype is now behind the design.
+
+**Verified:**
+- Nothing new to verify; no code changed.
+
+**Decisions:**
+- See `docs/game-design.md` §7.
+
+**Next step:** implement shared prestige, the Rebels < 20% rule (with rebalance) and citizen events.
+
+**Time spent:** ~10 minutes

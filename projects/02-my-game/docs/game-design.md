@@ -88,3 +88,9 @@ All exact numbers live in `prototype/model.js` and are **design values, not data
 - Shared prestige currency across crises, or separate?
 - Is the Architect benevolent, or can the player choose a darker path?
 - Final name of the game (`my-game` is a placeholder).
+
+## 7. Decisions log
+- 2026-11-11 · Owner: one **shared prestige** currency across all four crises.
+- 2026-11-11 · Owner: the player **can go dark**; the control/surveillance path gets its own ending instead of being only a loss.
+- 2026-11-11 · Owner: next feature is **citizen events** (short dilemmas that shock the numbers).
+- 2026-11-11 · Delegated to Claude: Crisis 4 "stable" will mean **Rebels < 20%** (the notes' goal is rebels near 0). Prototype must be rebalanced to stay winnable.
