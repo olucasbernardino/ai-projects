@@ -58,3 +58,32 @@ Append-only. Never delete or rewrite an entry; add a new one to correct it.
 **Next step:** implement shared prestige, the Rebels < 20% rule (with rebalance) and citizen events.
 
 **Time spent:** ~10 minutes
+
+---
+
+## 2026-11-11: Prototype v0.2 — shared prestige, dark endings, citizen events
+
+**Goal for this session:** implement the owner's decisions from §7 and give the owner a test link.
+
+**What I did:**
+- Published v0.1 as a private claude.ai artifact so the owner could test it, then updated the same link to v0.2.
+- Added the shared prestige pool, the Rebels < 20% goal, two dark endings and 10 citizen events (`prototype/events.js`).
+
+**Which AI helped and how:**
+- Claude: design, code, balance tuning and testing.
+
+**What went wrong / what surprised me:**
+- The stricter Rebels rule gave 0 winning plans. Tuning took several rounds: Divergent reward up, Frontier prestige 0.6 → 0.7, prestige income tried at 16/14/12/10/8. Low income made the pool too tight to win; 16 made it never run out. Chose 12.
+- Even at 12, the best fixed plans never run out of prestige. The pool only bites when players overspend. Needs playtesting.
+
+**Verified:**
+- `node tools/balance_check.js` → 218,070 plans, 15 win.
+- Headless Chromium: played a winning plan with events (always picking the non-dark choice) to generation 30, "Vitória", no page errors; no horizontal overflow at 400px.
+- Not verified: the dark endings and every event in a real play; balance with events and with changing levers each turn.
+
+**Decisions:**
+- Prestige income 12; event every 2 generations.
+
+**Next step:** owner playtests v0.2 and reports what feels too hard, too easy or boring.
+
+**Time spent:** ~1 hour (AI session)

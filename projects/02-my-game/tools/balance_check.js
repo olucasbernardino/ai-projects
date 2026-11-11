@@ -8,6 +8,6 @@ for (const e of R) for (const f of R) for (const g of R) for (const h of R) {
   const game = m.newGame();
   Object.assign(game.lev, { s1: { decay: a, quality: b }, s2: { weight: c, audit: d }, s3: { quota: e, peer: f }, s4: { punish: g, prestige: h } });
   let r; while (!(r = m.step(game)));
-  if (r.win) { wins++; example = example || [a, b, c, d, e, f, g, h]; }
+  if (r.kind === "win") { wins++; example = example || [a, b, c, d, e, f, g, h]; }
 }
-console.log(`plans tried: ${n}, winning plans: ${wins}, example: ${example}`);
+const kinds = {}; console.log(`plans tried: ${n}, winning plans: ${wins}, example: ${example}`);

@@ -94,3 +94,10 @@ All exact numbers live in `prototype/model.js` and are **design values, not data
 - 2026-11-11 · Owner: the player **can go dark**; the control/surveillance path gets its own ending instead of being only a loss.
 - 2026-11-11 · Owner: next feature is **citizen events** (short dilemmas that shock the numbers).
 - 2026-11-11 · Delegated to Claude: Crisis 4 "stable" will mean **Rebels < 20%** (the notes' goal is rebels near 0). Prototype must be rebalanced to stay winnable.
+
+## 8. Prototype v0.2 rules [Claude, implementing §7]
+- **Shared prestige pool** (starts 20). The four "carrot" levers (★) cost 1 prestige per point per generation. If the pool is short, all ★ levers lose strength by the same ratio. Income each generation = `12 × 2 × average healthy share`, so a healthy society funds its own rewards.
+- **Stability** now means Rebels < 20% (other goals stay ≥ 30%).
+- **Dark endings:** Freedom 0 ends the game in "Ordem Perfeita" (all goals met, nobody free) or "Ditadura Algorítmica" (goals failed). Some events have dark choices (purple) that trade Freedom for fast results.
+- **Citizen events:** 10 dilemmas in `prototype/events.js`, one every 2 generations, no repeats until the deck runs out.
+- Balance (`tools/balance_check.js`, no events): 15 of 218,070 fixed plans win.
