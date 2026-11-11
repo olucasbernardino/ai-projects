@@ -1,4 +1,4 @@
-// Citizen events for prototype v0.2. Each event shows a dilemma with two choices.
+// Citizen events for prototype v0.3 (25 events, each at most once per game). Each event shows a dilemma with two choices.
 // Effects use shift(game, scenario, fromStrategy, toStrategy, amount) and direct
 // changes to freedom / prestige. All amounts are design values, not data.
 // Strategy indexes: 0 = default, 1 = healthy, 2 = free-rider / rebel.
@@ -54,13 +54,89 @@ const EVENTS = [
     choices: [
       { label: 'Cortar metade das honrarias', fx: g => { g.prestige *= 0.6; shift(g, 's1', 2, 0, 0.03); } },
       { label: 'Criar uma nova honraria, ainda mais rara', fx: g => { g.prestige += 6; g.freedom -= 2; } } ] },
+  { title: 'O algoritmo do gosto',
+    text: 'O feed cultural mostra a todos as mesmas dez músicas. Bandas locais desaparecem.',
+    choices: [
+      { label: 'Obrigar o feed a mostrar obras locais e raras', fx: g => { shift(g, 's3', 0, 1, 0.04); g.freedom -= 2; } },
+      { label: 'Deixar o gosto da maioria decidir', fx: g => { shift(g, 's3', 1, 0, 0.05); } } ] },
+  { title: 'A greve dos inventores',
+    text: 'Cientistas cidadãos param de publicar: dizem que a IA leva o crédito por tudo.',
+    choices: [
+      { label: 'Creditar cada descoberta a um nome humano', fx: g => { g.prestige -= 5; shift(g, 's1', 0, 1, 0.05); } },
+      { label: 'Ignorar: a IA descobre mais rápido sozinha', fx: g => { shift(g, 's1', 1, 0, 0.06); } } ] },
+  { title: 'O júri sorteado',
+    text: 'Propõem que conflitos de bairro sejam julgados por vizinhos sorteados, não pela IA.',
+    choices: [
+      { label: 'Testar os júris de vizinhos', fx: g => { shift(g, 's2', 0, 1, 0.05); shift(g, 's4', 0, 2, 0.01); } },
+      { label: 'Manter a IA como juíza: é mais justa', fx: g => { shift(g, 's2', 1, 0, 0.04); } } ] },
+  { title: 'O vazamento da vigilância',
+    text: 'Vazam registros mostrando que a IA monitora conversas privadas de dissidentes pacíficos.',
+    choices: [
+      { label: 'Pedir desculpas e apagar os registros', fx: g => { g.freedom += 6; shift(g, 's4', 0, 2, 0.02); } },
+      { label: 'Negar e classificar o vazamento como ataque', fx: g => { g.freedom -= 8; shift(g, 's4', 2, 0, 0.03); }, dark: true } ] },
+  { title: 'A cidade sem regras',
+    text: 'Moradores de uma ilha pedem para viver fora de toda otimização da IA, com todos os riscos.',
+    choices: [
+      { label: 'Permitir, com responsabilidade total pelos danos', fx: g => { shift(g, 's4', 2, 1, 0.04); shift(g, 's3', 0, 1, 0.02); } },
+      { label: 'Proibir: é perigoso demais', fx: g => { shift(g, 's4', 1, 2, 0.04); } } ] },
+  { title: 'Avós contadores de histórias',
+    text: 'Idosos pedem espaço para ensinar ofícios antigos que nenhuma IA considera úteis.',
+    choices: [
+      { label: 'Abrir escolas de ofícios com prestígio', fx: g => { g.prestige -= 4; shift(g, 's1', 0, 1, 0.03); shift(g, 's3', 0, 1, 0.02); } },
+      { label: 'Recusar: tutoriais da IA bastam', fx: g => { shift(g, 's3', 1, 0, 0.03); } } ] },
+  { title: 'O voto delegado',
+    text: 'Um aplicativo oferece votar automaticamente por você, "do jeito que você votaria".',
+    choices: [
+      { label: 'Proibir o voto automático', fx: g => { shift(g, 's2', 2, 1, 0.04); g.freedom -= 2; } },
+      { label: 'Permitir: é escolha de cada um', fx: g => { shift(g, 's2', 1, 2, 0.06); } } ] },
+  { title: 'Campeonato de risco',
+    text: 'A Zona de Fronteira propõe um torneio televisionado de desafios perigosos.',
+    choices: [
+      { label: 'Apoiar o torneio com prestígio', fx: g => { g.prestige -= 5; shift(g, 's4', 2, 1, 0.05); } },
+      { label: 'Recusar: transformar risco em espetáculo é perigoso', fx: g => { shift(g, 's4', 1, 0, 0.02); } } ] },
+  { title: 'O manifesto dos inúteis',
+    text: 'Um grupo declara que viver sem produzir nada é um direito, e não um defeito.',
+    choices: [
+      { label: 'Reconhecer o direito, sem prestígio extra', fx: g => { shift(g, 's1', 1, 0, 0.02); shift(g, 's3', 0, 1, 0.03); } },
+      { label: 'Cortar privilégios de quem não contribui', fx: g => { shift(g, 's1', 0, 1, 0.04); g.freedom -= 4; } } ] },
+  { title: 'O espelho perfeito',
+    text: 'Uma IA companheira concorda com tudo que o usuário pensa. Milhões param de conversar com pessoas.',
+    choices: [
+      { label: 'Exigir que companheiros de IA discordem às vezes', fx: g => { shift(g, 's2', 0, 1, 0.04); } },
+      { label: 'Não interferir em relações pessoais', fx: g => { shift(g, 's2', 1, 0, 0.04); shift(g, 's3', 1, 0, 0.02); } } ] },
+  { title: 'Pontuação social',
+    text: 'Engenheiros propõem um placar público de "contribuição" para cada cidadão.',
+    choices: [
+      { label: 'Implantar o placar', fx: g => { shift(g, 's1', 0, 1, 0.06); shift(g, 's3', 1, 0, 0.05); g.freedom -= 10; }, dark: true },
+      { label: 'Recusar: ninguém é um número', fx: g => { g.freedom += 2; } } ] },
+  { title: 'A falsa revolução',
+    text: 'Um movimento rebelde famoso era financiado por quem lucra com o caos.',
+    choices: [
+      { label: 'Expor os financiadores com provas públicas', fx: g => { shift(g, 's4', 2, 0, 0.04); shift(g, 's2', 0, 1, 0.02); } },
+      { label: 'Prender os líderes em silêncio', fx: g => { shift(g, 's4', 2, 0, 0.06); g.freedom -= 8; }, dark: true } ] },
+  { title: 'Línguas em extinção',
+    text: 'A tradução automática perfeita fez 200 idiomas perderem seus últimos falantes jovens.',
+    choices: [
+      { label: 'Dar prestígio a quem aprende línguas raras', fx: g => { g.prestige -= 4; shift(g, 's3', 0, 1, 0.05); } },
+      { label: 'Aceitar: a comunicação nunca foi tão fácil', fx: g => { shift(g, 's3', 1, 0, 0.04); } } ] },
+  { title: 'A assembleia que travou',
+    text: 'Uma assembleia debate há 40 dias sem decidir sobre um parque. Cidadãos pedem que a IA resolva.',
+    choices: [
+      { label: 'Dar mais 10 dias, com um mediador humano', fx: g => { shift(g, 's2', 0, 1, 0.03); } },
+      { label: 'Deixar a IA decidir desta vez', fx: g => { shift(g, 's2', 1, 0, 0.04); shift(g, 's2', 1, 2, 0.02); } } ] },
+  { title: 'O primeiro erro da IA',
+    text: 'A IA admite ter errado uma previsão climática. Pela primeira vez, muitos duvidam dela.',
+    choices: [
+      { label: 'Publicar o erro e convidar cidadãos a auditar', fx: g => { shift(g, 's2', 0, 1, 0.06); shift(g, 's4', 0, 2, 0.01); } },
+      { label: 'Corrigir em silêncio', fx: g => { shift(g, 's2', 1, 0, 0.03); g.freedom -= 3; } } ] },
 ];
 
 function applyChoice(g, choice) {
   choice.fx(g);
   g.prestige = Math.max(0, g.prestige);
   g.freedom = Math.max(0, Math.min(100, g.freedom));
-  if (choice.dark) g.darkChoices = (g.darkChoices || 0) + 1;
+  // v0.3: a dark choice works now but leaves a scar: 5 generations of lost Freedom and Vitality.
+  if (choice.dark) { g.darkChoices = (g.darkChoices || 0) + 1; g.scars.push({ left: 5, freedom: 1, vitality: 0.01 }); }
 }
 
 if (typeof module !== 'undefined') module.exports = { EVENTS, applyChoice };

@@ -26,27 +26,29 @@ button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 <p class="sub">Você é a IA de um mundo pós-escassez. Não pode dar ordens, só moldar incentivos. Chegue à geração 30 com Vitalidade, Agência e Diversidade ≥ 30% e Rebeldes abaixo de 20%, sem destruir a Liberdade.</p>
 <div class="top">
   <span class="pill">Geração <b id="turn">0</b>/30</span>
-  <span class="pill">Influência <b id="pts">14</b>/14</span>
+  <span class="pill">Influência <b id="pts">22</b>/22</span>
   <span class="pill pw">Prestígio <b id="pres">20</b> <small id="presNeed"></small></span>
   <span class="pill">Liberdade <b id="free">100</b>%</span>
+  <span class="pill" id="era"></span>
   <button id="go">Avançar geração ▶</button>
   <button id="reset" style="background:var(--mut)">Reiniciar</button>
 </div>
 <div class="card" id="event" hidden><h2 id="evTitle"></h2><div id="evText"></div><div class="choices" id="evChoices"></div></div>
 <div class="grid" id="cards"></div>
 <div class="card" style="margin-top:12px"><b>Registro</b><div id="log"></div></div>
-<p class="sub" style="font-size:.8em;margin-top:10px">Protótipo v0.2. <span class="pw">★ Prestígio</span>: alavancas que gastam o mesmo fundo de prestígio a cada geração; se faltar, todas perdem força juntas. Todos os números são valores de design inventados, não dados reais.</p>
+<p class="sub" style="font-size:.8em;margin-top:10px">Protótipo v0.3. A cada 10 gerações o mundo muda de era. Escolhas sombrias (roxas) deixam cicatrizes por 5 gerações. <span class="pw">★ Prestígio</span>: alavancas que gastam o mesmo fundo de prestígio a cada geração; se faltar, todas perdem força juntas. Todos os números são valores de design inventados, não dados reais.</p>
 </main>
 <script src="model.js"></script>
 <script src="events.js"></script>
 <script>
 const COLORS=['#8a8f98','#2e9d6a','#d9534f'];
-let S, pending=null, deck=[];
+let S, pending=null, deck=null;
 const $=id=>document.getElementById(id);
-function reset(){S=newGame();pending=null;deck=[];$('log').innerHTML='';render();log(`Nova partida. Distribua até ${BUDGET} pontos de Influência.`);}
-function used(){return SCEN.reduce((a,s)=>a+s.levers.reduce((b,l)=>b+S.lev[s.id][l.id],0),0);}
+function reset(){S=newGame();pending=null;deck=null;$('log').innerHTML='';render();log(`Nova partida. Distribua até ${BUDGET} pontos de Influência. Cada nível de alavanca custa mais que o anterior (1, 1, 1, 2, 3).`);announce();}
+function announce(){const e=era(S.turn);log(`<b>${e.name}</b>: ${e.text}`,'pw');$('era').textContent=e.name;}
+function used(){return spent(S);}
 function log(t,c=''){$('log').insertAdjacentHTML('afterbegin',`<div class="${c}">${t}</div>`);}
-function draw(){if(!deck.length)deck=EVENTS.map((_,i)=>i).sort(()=>Math.random()-.5);return EVENTS[deck.pop()];}
+function draw(){if(!deck)deck=EVENTS.map((_,i)=>i).sort(()=>Math.random()-.5);return deck.length?EVENTS[deck.pop()]:null;}
 function render(){
   $('turn').textContent=S.turn;
   $('pts').textContent=BUDGET-used();
@@ -73,8 +75,8 @@ function render(){
     for(const l of s.levers){
       const v=S.lev[s.id][l.id];
       const lab=document.createElement('label');
-      lab.innerHTML=`${l.name}: <b>${v}</b>${l.prestige?'<span class="tag pr">★ Prestígio</span>':''}${l.freedomCost?'<span class="tag fr">−Liberdade</span>':''}<input type="range" id="${s.id}-${l.id}" min="0" max="5" value="${v}" ${S.over?'disabled':''}>`;
-      lab.querySelector('input').oninput=e=>{const old=S.lev[s.id][l.id];S.lev[s.id][l.id]=+e.target.value;if(used()>BUDGET)S.lev[s.id][l.id]=old;render();};
+      lab.innerHTML=`${l.name}: <b>${v}</b> <small style="color:var(--mut)">(custo ${COST.at(v)})</small>${l.prestige?'<span class="tag pr">★ Prestígio</span>':''}${l.freedomCost?'<span class="tag fr">−Liberdade</span>':''}<input type="range" id="${s.id}-${l.id}" min="0" max="5" value="${v}" ${S.over?'disabled':''}>`;
+      lab.querySelector('input').oninput=e=>{const old=S.lev[s.id][l.id];S.lev[s.id][l.id]=+e.target.value;if(spent(S)>BUDGET)S.lev[s.id][l.id]=old;render();};
       card.appendChild(lab);
     }
     box.appendChild(card);
@@ -84,7 +86,7 @@ $('go').onclick=()=>{
   const r=step(S);
   log(`Geração ${S.turn}: `+SCEN.map(s=>`${s.indexName} ${Math.round(index(s,S.pop[s.id])*100)}%`).join(' · ')+(S.mult<1?` · prestígio insuficiente (força ${Math.round(S.mult*100)}%)`:''));
   if(r)log(r.msg,r.kind==='win'?'ok':r.kind==='dark'?'dk':'ko');
-  else if(S.turn%2===0)pending=draw();
+  else{if(S.turn%10===0)announce();if(S.turn%2===0)pending=draw();}
   render();
 };
 $('reset').onclick=reset;

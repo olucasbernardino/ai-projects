@@ -5,13 +5,16 @@ global.shift = m.shift;
 const { EVENTS, applyChoice } = require('../prototype/events.js');
 const N = +process.argv[2] || 500;
 const L = [['s1','decay'],['s1','quality'],['s2','weight'],['s2','audit'],['s3','quota'],['s3','peer'],['s4','punish'],['s4','prestige']];
-const BEST = [2,2,3,1,1,1,0,4];
+let BEST = [2,2,3,1,1,1,0,4]; // replaced by the best fixed plan from balance_check when available
+try { BEST = require('./best_plan.json'); } catch (e) {}
+let ERA_PLANS = null; try { ERA_PLANS = require('./era_plans.json'); } catch (e) {}
 const rnd = n => Math.floor(Math.random() * n);
 
 function setPlan(g, plan) { L.forEach(([s, l], i) => g.lev[s][l] = plan[i]); }
+const planCost = p => p.reduce((a, v) => a + m.COST.at(v), 0);
 function randomPlan(budget) {
   const p = Array(8).fill(0);
-  for (let k = 0; k < budget; k++) { const i = rnd(8); if (p[i] < 5) p[i]++; }
+  for (let k = 0; k < 40; k++) { const i = rnd(8); if (p[i] < 5) { p[i]++; if (planCost(p) > budget) p[i]--; } }
   return p;
 }
 // Adaptive bot: each turn, spend points on the crisis furthest below its goal.
@@ -20,12 +23,12 @@ function adaptive(g, avoidPunish) {
   const p = Array(8).fill(0); let pts = m.BUDGET;
   // baseline 1 point on every non-punish lever
   for (let i = 0; i < 8; i++) if (!(i === 6)) { p[i] = 1; pts--; }
-  while (pts > 0) {
+  for (let guard = 0; guard < 20 && pts > 0; guard++) {
     const order = gap.map((v, i) => [v, i]).sort((a, b) => b[0] - a[0]);
     let placed = false;
     for (const [, si] of order) {
-      const cands = [si * 2, si * 2 + 1].filter(i => !(avoidPunish && i === 6) && p[i] < 5);
-      if (cands.length) { const i = cands[0]; p[i]++; pts--; gap[si] -= 0.04; placed = true; break; }
+      const cands = [si * 2, si * 2 + 1].filter(i => !(avoidPunish && i === 6) && p[i] < 5 && m.COST.at(p[i] + 1) - m.COST.at(p[i]) <= pts).sort((a, b) => p[a] - p[b]);
+      if (cands.length) { const i = cands[0]; pts -= m.COST.at(p[i] + 1) - m.COST.at(p[i]); p[i]++; gap[si] -= 0.04; placed = true; break; }
     }
     if (!placed) break;
   }
@@ -44,7 +47,9 @@ const BOTS = {
   'Best fixed plan, good choices':   { plan: () => BEST, ev: 'good' },
   'Best fixed plan, random choices': { plan: () => BEST, ev: 'random' },
   'Best fixed plan, worst choices':  { plan: () => BEST, ev: 'worst' },
-  'Tyrant (max punishment)':      { plan: () => [2,2,2,1,2,0,5,0], ev: 'dark' },
+  'Era planner, good choices':   { plan: g => ERA_PLANS ? ERA_PLANS.at(Math.min(2, Math.floor(g.turn / 10))) : BEST, ev: 'good' },
+  'Era planner, random choices': { plan: g => ERA_PLANS ? ERA_PLANS.at(Math.min(2, Math.floor(g.turn / 10))) : BEST, ev: 'random' },
+  'Tyrant (max punishment)':      { plan: () => [1,1,1,0,1,0,5,0], ev: 'dark' },
 };
 
 // "good" = the first non-dark choice that a quick lookahead rates best; "worst" = the opposite.
@@ -59,13 +64,14 @@ function pickChoice(g, ev, mode) {
 }
 
 function play(bot) {
-  const g = m.newGame(), st = {}; let deck = [], r = null, short = 0, picks = {};
+  const g = m.newGame(), st = {}; let deck = null, r = null, short = 0, picks = {};
   while (!r) {
     setPlan(g, bot.plan(g, g.turn, st));
     r = m.step(g);
     if (g.mult < 1) short++;
     if (!r && g.turn % 2 === 0) {
-      if (!deck.length) deck = EVENTS.map((_, i) => i).sort(() => Math.random() - .5);
+      if (!deck) deck = EVENTS.map((_, i) => i).sort(() => Math.random() - .5);
+      if (!deck.length) continue;
       const ev = EVENTS[deck.pop()], c = pickChoice(g, ev, bot.ev);
       applyChoice(g, c); picks[ev.title + ' → ' + c.label] = 1;
       r = m.checkEnd(g);

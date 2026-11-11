@@ -101,3 +101,14 @@ All exact numbers live in `prototype/model.js` and are **design values, not data
 - **Dark endings:** Freedom 0 ends the game in "Ordem Perfeita" (all goals met, nobody free) or "Ditadura Algorítmica" (goals failed). Some events have dark choices (purple) that trade Freedom for fast results.
 - **Citizen events:** 10 dilemmas in `prototype/events.js`, one every 2 generations, no repeats until the deck runs out.
 - Balance (`tools/balance_check.js`, no events): 15 of 218,070 fixed plans win.
+
+## 9. Prototype v0.3 rules [Claude, from the playtest report]
+- **Rising slider costs:** levels cost 1, 1, 1, 2, 3 points (level 5 = 8 in total). Budget 22.
+- **Eras:** every 10 generations the world pushes a different crisis (Abundância → Conveniência → Tédio).
+- **Scars:** a dark choice adds 5 generations of −1 Freedom and lost creators.
+- **Frontier capacity:** above 35% of the population, the Frontier gets crowded fast.
+- **Rebellion from boredom:** rebels gain less when more people create, deliberate and diverge.
+- **Ordinary life pays:** conformists' base payoff raised (the fix for the flaw in the original Crisis 4 math).
+- **Ordem Perfeita:** reaching generation 30 with every goal met but Freedom under 30%.
+- **25 events**, each at most once per game; event effects scaled to 40%.
+- Balance is **not finished**: see the dev log entry of 2026-11-11 "v0.3".

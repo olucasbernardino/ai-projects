@@ -141,3 +141,32 @@ Append-only. Never delete or rewrite an entry; add a new one to correct it.
 **Next step:** owner answers the report's decisions; then v0.3 balance fixes.
 
 **Time spent:** ~30 minutes (AI session)
+
+---
+
+## 2026-11-11: Prototype v0.3 — features done, balance not finished
+
+**Goal for this session:** fix the six problems in the playtest report.
+
+**What I did:**
+- Added rising slider costs, three eras, scars from dark choices, Frontier capacity, rebellion linked to boredom, a better conformist life, a reachable "Ordem Perfeita" ending and 15 new events (25 total, no repeats).
+- Added `tools/era_planner.js` (a bot that picks the best plan at the start of each era) and made the simulator and balance check use the new costs.
+
+**Which AI helped and how:**
+- Claude: design, code and about 15 rounds of balance tuning with the simulators.
+
+**What went wrong / what surprised me:**
+- Tuning by hand was whack-a-mole. One mid-way setting met the main goal (0 of 621,081 fixed plans won, the era planner won 100%), but a screenshot showed 83% of people in the Frontier: the simulators did not check that. Fixing the Frontier made the game unwinnable; fixing that made fixed plans win again.
+- My "adaptive" bot is too naive to judge the game; it never wins in any setting.
+- The final setting is a compromise. Of 621,081 fixed plans, 171 win (0.03%). The best fixed plan and the era planner both win 100% with good event choices. With random event choices, the era planner ends in "Ordem Perfeita" 80% of the time because it leans on punishment.
+
+**Verified:**
+- `node tools/balance_check.js`, `node tools/era_planner.js`, `node tools/playtest_sim.js 500` (numbers above).
+- Played the game in headless Chromium with the era plans: reached generation 30 and won, with no page errors (that check was done on an earlier mid-tuning setting).
+
+**Decisions:**
+- Stop hand-tuning. Next: add the missing checks (Frontier share, Freedom margin) to the simulator and let a script search the parameters against written targets.
+
+**Next step:** owner plays v0.3 and decides on the tuning approach.
+
+**Time spent:** ~2 hours (AI session)
