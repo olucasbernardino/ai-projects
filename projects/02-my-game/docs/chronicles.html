@@ -1,0 +1,113 @@
+<title>Chronicles of the Architect</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400&display=swap">
+<style>
+/* Layout: archive of six world-histories; tab strip of rulers, then one chronicle with its chart and a dated timeline. */
+:root{
+  --bg:#f3f4f7;--panel:#ffffff;--fg:#1b1e26;--mut:#5d6473;--line:#d9dce4;--accent:#3a4fb8;
+  --vit:#2e9d6a;--age:#3a7bd5;--div:#b4569e;--sta:#d0782a;--free:#7a7f8c;--dark:#6b3fa0;--bad:#c0392b;--good:#2e7d4f;
+  --display:"Space Grotesk",system-ui,sans-serif;--body:"Inter",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#12141a;--panel:#1b1e27;--fg:#e8eaf0;--mut:#9aa0ae;--line:#2c303c;--accent:#8796f0;--vit:#56c48e;--age:#6fa4f0;--div:#d885c4;--sta:#eda05c;--free:#a3a8b5;--dark:#b48be6;--bad:#ef6b5b;--good:#58c487}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#12141a;--panel:#1b1e27;--fg:#e8eaf0;--mut:#9aa0ae;--line:#2c303c;--accent:#8796f0;--vit:#56c48e;--age:#6fa4f0;--div:#d885c4;--sta:#eda05c;--free:#a3a8b5;--dark:#b48be6;--bad:#ef6b5b;--good:#58c487}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.55 var(--body)}
+.wrap{max-width:900px;margin:auto;padding-block:28px 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1{font:700 2rem/1.15 var(--display);margin:0 0 6px;text-wrap:balance}
+h2{font:700 1.4rem/1.2 var(--display);margin:0;text-wrap:balance}
+.lede{color:var(--mut);max-width:65ch;margin:0 0 20px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.tabs button{font:500 .9rem var(--display);background:var(--panel);color:var(--fg);border:1px solid var(--line);border-radius:999px;padding:7px 14px;cursor:pointer;display:flex;gap:6px;align-items:center}
+.tabs button[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.tabs button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.dot{width:8px;height:8px;border-radius:50%}
+.head{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;justify-content:space-between;margin-bottom:6px}
+.badge{font:600 .75rem var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:4px;color:#fff}
+.b-win{background:var(--good)}.b-lose{background:var(--bad)}.b-dark{background:var(--dark)}
+.meta{color:var(--mut);font-size:.9rem;margin:0 0 14px}
+.chart{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 12px 6px;margin-bottom:18px}
+.chart svg{width:100%;height:auto;display:block}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:.8rem;color:var(--mut);margin-top:6px}
+.legend i{display:inline-block;width:14px;height:3px;border-radius:2px;vertical-align:middle;margin-right:5px}
+.tl{list-style:none;margin:0;padding:0;border-left:2px solid var(--line);margin-left:44px}
+.tl li{position:relative;padding:0 0 14px 16px}
+.tl li::before{content:"";position:absolute;left:-6px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--panel);border:2px solid var(--mut)}
+.tl li.ev::before{border-color:var(--sta);background:var(--sta)}
+.tl li.dk::before{border-color:var(--dark);background:var(--dark)}
+.tl li.end::before{border-color:var(--fg);background:var(--fg)}
+.gen{position:absolute;left:-62px;top:2px;width:48px;text-align:right;font:.78rem var(--mono);color:var(--mut)}
+.tl p{margin:0 0 4px;max-width:65ch}
+.evbox{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px 10px;margin:4px 0 4px;max-width:65ch}
+.evbox b{font-family:var(--display)}.evbox .q{color:var(--mut);font-size:.88rem;margin:2px 0 4px}
+.evbox .c{font-size:.9rem}.evbox.dk{border-color:var(--dark)}.evbox.dk .c{color:var(--dark)}
+.ending{font:600 1rem var(--display)}
+.note{color:var(--mut);font-size:.82rem;margin-top:26px;max-width:65ch}
+.quiet{color:var(--mut);font-style:italic;font-size:.9rem}
+</style>
+<div class="wrap">
+  <h1>Chronicles of the Architect</h1>
+  <p class="lede">Six simulated rulers of the same post-scarcity world. Each story below is one real game from the automated playtests of prototype v0.2, picked to show the most common outcome for that kind of player. Every sentence comes from the numbers in that game.</p>
+  <div class="tabs" role="tablist" id="tabs"></div>
+  <section id="story" aria-live="polite"><p class="quiet">Loading chronicles…</p></section>
+  <p class="note">Game numbers are invented design values, not real-world data. Data: <code>chronicles-v0.2.json</code>, made by <code>tools/chronicles.js</code>. Event text is in Portuguese, as in the game.</p>
+</div>
+<script>
+const SERIES=[["Vitality","--vit"],["Agency","--age"],["Diversity","--div"],["Stability","--sta"]];
+const ABOUT={
+ "The Absent Architect":"Never touches a single slider.",
+ "The Erratic Architect":"Moves sliders at random every generation, punishment included.",
+ "The Firefighter":"Each generation, rushes points to whichever crisis looks worst.",
+ "The Planner":"Keeps the best plan found by the balance check and picks the sensible side of every event.",
+ "The Planner Who Chose Badly":"Same plan as The Planner, but always picks the most harmful side of each event.",
+ "The Tyrant":"Maximum surveillance and punishment, always the dark choice.",
+};
+const BADGE={win:["Victory","b-win"],lose:["Collapse","b-lose"],dark:["Dark ending","b-dark"]};
+let DATA=[];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+
+function chart(c){
+  const W=640,H=200,L=34,R=10,T=10,B=26,n=c.chapters.length;
+  const pts=[{idx:c.start,freedom:100}].concat(c.chapters);
+  const x=i=>L+(W-L-R)*(i/Math.max(1,n)),y=v=>T+(H-T-B)*(1-v/100);
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Indices over time">`;
+  for(const v of [0,25,50,75,100]) s+=`<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="${css('--line')}" stroke-width="1"/><text x="${L-6}" y="${y(v)+4}" text-anchor="end" font-size="10" fill="${css('--mut')}" font-family="IBM Plex Mono,monospace">${v}</text>`;
+  const step=n>10?5:1;
+  for(let i=0;i<=n;i+=step) s+=`<text x="${x(i)}" y="${H-8}" text-anchor="middle" font-size="10" fill="${css('--mut')}" font-family="IBM Plex Mono,monospace">${i}</text>`;
+  s+=`<line x1="${L}" x2="${W-R}" y1="${y(30)}" y2="${y(30)}" stroke="${css('--mut')}" stroke-dasharray="3 4" stroke-width="1"/>`;
+  s+=`<polyline fill="none" stroke="${css('--free')}" stroke-width="1.5" stroke-dasharray="5 3" points="${pts.map((p,i)=>x(i)+','+y(p.freedom)).join(' ')}"/>`;
+  SERIES.forEach(([,col],k)=>{s+=`<polyline fill="none" stroke="${css(col)}" stroke-width="2.2" stroke-linejoin="round" points="${pts.map((p,i)=>x(i)+','+y(p.idx[k])).join(' ')}"/>`;
+    const last=pts[pts.length-1];s+=`<circle cx="${x(n)}" cy="${y(last.idx[k])}" r="3.2" fill="${css(col)}"/>`;});
+  return s+`</svg><div class="legend">${SERIES.map(([nm,col])=>`<span><i style="background:var(${col})"></i>${nm}</span>`).join('')}<span><i style="background:var(--free)"></i>Freedom (dashed)</span><span>Dotted line: 30% goal · x-axis: generation</span></div>`;
+}
+
+function show(i){
+  const c=DATA[i];
+  document.querySelectorAll('#tabs button').forEach((b,k)=>b.setAttribute('aria-selected',k===i));
+  try{localStorage.setItem('chron-tab',i)}catch(e){}
+  const [bl,bc]=BADGE[c.outcome];
+  let tl='';
+  c.chapters.forEach((ch,k)=>{
+    const last=k===c.chapters.length-1;
+    if(!ch.lines.length&&!ch.ev&&!last)return;
+    const cls=last?'end':ch.ev?(ch.ev.dark?'dk':'ev'):'';
+    let body=ch.lines.map(l=>`<p>${esc(l)}</p>`).join('');
+    if(ch.ev)body+=`<div class="evbox${ch.ev.dark?' dk':''}"><b>${esc(ch.ev.title)}</b><div class="q">${esc(ch.ev.text)}</div><div class="c">Architect's choice: ${esc(ch.ev.choice)}${ch.ev.dark?' (dark choice)':''}</div></div>`;
+    if(last)body+=`<p class="ending">${esc(c.ending)}</p><p class="quiet">Final state: Vitality ${ch.idx[0]}% · Agency ${ch.idx[1]}% · Diversity ${ch.idx[2]}% · Rebels ${100-ch.idx[3]}% · Freedom ${ch.freedom}%</p>`;
+    tl+=`<li class="${cls}"><span class="gen">gen ${ch.turn}</span>${body}</li>`;
+  });
+  document.getElementById('story').innerHTML=`<div class="head"><h2>${esc(c.name)}</h2><span class="badge ${bc}">${bl}</span></div>
+   <p class="meta">${esc(ABOUT[c.name]||'')} This ending happened in ${c.outcomeShare}% of this player's 200 games. Lasted ${c.chapters.length} generations.</p>
+   <div class="chart">${chart(c)}</div><ol class="tl">${tl}</ol>`;
+}
+
+fetch('chronicles-v0.2.json').then(r=>r.json()).then(d=>{
+  DATA=d;
+  const tabs=document.getElementById('tabs');
+  d.forEach((c,i)=>{const b=document.createElement('button');b.setAttribute('role','tab');b.id='tab-'+i;
+    b.innerHTML=`<span class="dot" style="background:var(${c.outcome==='win'?'--good':c.outcome==='dark'?'--dark':'--bad'})"></span>${esc(c.name)}`;b.onclick=()=>show(i);tabs.appendChild(b);});
+  let start=3;try{const v=+localStorage.getItem('chron-tab');if(v>=0&&v<d.length&&localStorage.getItem('chron-tab')!==null)start=v}catch(e){}
+  show(start);
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>show(+document.querySelector('[aria-selected="true"]').id.slice(4)));
+}).catch(()=>{document.getElementById('story').innerHTML='<p class="quiet">The chronicle data did not load. Reload the page to try again.</p>';});
+</script>

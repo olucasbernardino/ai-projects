@@ -1,0 +1,94 @@
+<title>O Arquiteto</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+:root{--bg:#f6f5f1;--fg:#1d1d1f;--card:#fff;--mut:#666;--line:#ddd;--good:#2e7d4f;--bad:#c0392b;--acc:#3557a6;--gold:#a87a12;--dark:#5b2a86}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#141416;--fg:#ececec;--card:#1f1f23;--mut:#9a9a9a;--line:#333;--good:#58c487;--bad:#ef6b5b;--acc:#7f9cf0;--gold:#e0b84a;--dark:#b58ae0}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#141416;--fg:#ececec;--card:#1f1f23;--mut:#9a9a9a;--line:#333;--good:#58c487;--bad:#ef6b5b;--acc:#7f9cf0;--gold:#e0b84a;--dark:#b58ae0}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.45 system-ui,sans-serif}
+main{max-width:980px;margin:auto;padding-block:16px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1{margin:.2em 0;font-size:1.5em}p.sub{color:var(--mut);margin-top:0}
+.top{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:12px 0}.pill{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-variant-numeric:tabular-nums}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px;min-width:0}
+.card h2{font-size:1.05em;margin:0 0 4px}.idx{font-size:.9em;color:var(--mut)}
+.bar{display:flex;height:14px;border-radius:4px;overflow:hidden;margin:8px 0}.bar div{transition:width .3s}
+.leg{font-size:.8em;color:var(--mut);display:flex;gap:10px;flex-wrap:wrap}.leg i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:3px}
+label{display:block;font-size:.88em;margin-top:6px}input[type=range]{width:100%}
+.tag{font-size:.75em;border-radius:4px;padding:0 4px;margin-left:4px}.tag.pr{color:var(--gold);border:1px solid var(--gold)}.tag.fr{color:var(--bad);border:1px solid var(--bad)}
+button{background:var(--acc);color:#fff;border:0;border-radius:8px;padding:9px 16px;font-size:1em;cursor:pointer}button:disabled{opacity:.5;cursor:default}
+button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+#event{border:2px solid var(--gold);margin-bottom:12px}#event h2{color:var(--gold)}#event .choices{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+#event button{text-align:left;background:var(--card);color:var(--fg);border:1px solid var(--line)}#event button.dk{border-color:var(--dark);color:var(--dark)}
+#log{max-height:180px;overflow:auto;font-size:.85em;color:var(--mut)}.ok{color:var(--good)}.ko{color:var(--bad)}.dk{color:var(--dark)}.pw{color:var(--gold)}
+</style>
+<main>
+<h1>O Arquiteto</h1>
+<p class="sub">Você é a IA de um mundo pós-escassez. Não pode dar ordens, só moldar incentivos. Chegue à geração 30 com Vitalidade, Agência e Diversidade ≥ 30% e Rebeldes abaixo de 20%, sem destruir a Liberdade.</p>
+<div class="top">
+  <span class="pill">Geração <b id="turn">0</b>/30</span>
+  <span class="pill">Influência <b id="pts">22</b>/22</span>
+  <span class="pill pw">Prestígio <b id="pres">20</b> <small id="presNeed"></small></span>
+  <span class="pill">Liberdade <b id="free">100</b>%</span>
+  <span class="pill" id="era"></span>
+  <button id="go">Avançar geração ▶</button>
+  <button id="reset" style="background:var(--mut)">Reiniciar</button>
+</div>
+<div class="card" id="event" hidden><h2 id="evTitle"></h2><div id="evText"></div><div class="choices" id="evChoices"></div></div>
+<div class="grid" id="cards"></div>
+<div class="card" style="margin-top:12px"><b>Registro</b><div id="log"></div></div>
+<p class="sub" style="font-size:.8em;margin-top:10px">Protótipo v0.3. A cada 10 gerações o mundo muda de era. Escolhas sombrias (roxas) deixam cicatrizes por 5 gerações. <span class="pw">★ Prestígio</span>: alavancas que gastam o mesmo fundo de prestígio a cada geração; se faltar, todas perdem força juntas. Todos os números são valores de design inventados, não dados reais.</p>
+</main>
+<script src="model.js"></script>
+<script src="events.js"></script>
+<script>
+const COLORS=['#8a8f98','#2e9d6a','#d9534f'];
+let S, pending=null, deck=null;
+const $=id=>document.getElementById(id);
+function reset(){S=newGame();pending=null;deck=null;$('log').innerHTML='';render();log(`Nova partida. Distribua até ${BUDGET} pontos de Influência. Cada nível de alavanca custa mais que o anterior (1, 1, 1, 2, 3).`);announce();}
+function announce(){const e=era(S.turn);log(`<b>${e.name}</b>: ${e.text}`,'pw');$('era').textContent=e.name;}
+function used(){return spent(S);}
+function log(t,c=''){$('log').insertAdjacentHTML('afterbegin',`<div class="${c}">${t}</div>`);}
+function draw(){if(!deck)deck=EVENTS.map((_,i)=>i).sort(()=>Math.random()-.5);return deck.length?EVENTS[deck.pop()]:null;}
+function render(){
+  $('turn').textContent=S.turn;
+  $('pts').textContent=BUDGET-used();
+  $('pres').textContent=Math.round(S.prestige);
+  const need=prestigeDemand(S);
+  $('presNeed').textContent=`(gasto ${need}/geração${need>S.prestige?' — insuficiente!':''})`;
+  $('free').textContent=Math.round(S.freedom);
+  $('go').disabled=S.over||!!pending;
+  $('event').hidden=!pending;
+  if(pending){
+    $('evTitle').textContent=pending.title;$('evText').textContent=pending.text;$('evChoices').innerHTML='';
+    pending.choices.forEach(c=>{const b=document.createElement('button');b.textContent=c.label;if(c.dark)b.className='dk';
+      b.onclick=()=>{applyChoice(S,c);log(`Evento "${pending.title}": ${c.label}`,c.dark?'dk':'pw');pending=null;const r=checkEnd(S);if(r)log(r.msg,r.kind==='win'?'ok':r.kind==='dark'?'dk':'ko');render();};
+      $('evChoices').appendChild(b);});
+  }
+  const box=$('cards');box.innerHTML='';
+  for(const s of SCEN){
+    const x=S.pop[s.id],ix=index(s,x),goal=winLine(s);
+    const card=document.createElement('div');card.className='card';
+    const goalTxt=s.id==='s4'?`Rebeldes ${Math.round(x[2]*100)}% (meta &lt; 20%)`:`${s.indexName}: <b class="${ix<goal?'ko':'ok'}">${Math.round(ix*100)}%</b> (meta ≥ 30%)`;
+    card.innerHTML=`<h2>${s.name}</h2><div class="idx">${s.id==='s4'?`<b class="${ix<goal?'ko':'ok'}">${goalTxt}</b>`:goalTxt}</div>
+      <div class="bar">${x.map((v,i)=>`<div style="width:${v*100}%;background:${COLORS[i]}"></div>`).join('')}</div>
+      <div class="leg">${s.strats.map((n,i)=>`<span><i style="background:${COLORS[i]}"></i>${n} ${Math.round(x[i]*100)}%</span>`).join('')}</div>`;
+    for(const l of s.levers){
+      const v=S.lev[s.id][l.id];
+      const lab=document.createElement('label');
+      lab.innerHTML=`${l.name}: <b>${v}</b> <small style="color:var(--mut)">(custo ${COST.at(v)})</small>${l.prestige?'<span class="tag pr">★ Prestígio</span>':''}${l.freedomCost?'<span class="tag fr">−Liberdade</span>':''}<input type="range" id="${s.id}-${l.id}" min="0" max="5" value="${v}" ${S.over?'disabled':''}>`;
+      lab.querySelector('input').oninput=e=>{const old=S.lev[s.id][l.id];S.lev[s.id][l.id]=+e.target.value;if(spent(S)>BUDGET)S.lev[s.id][l.id]=old;render();};
+      card.appendChild(lab);
+    }
+    box.appendChild(card);
+  }
+}
+$('go').onclick=()=>{
+  const r=step(S);
+  log(`Geração ${S.turn}: `+SCEN.map(s=>`${s.indexName} ${Math.round(index(s,S.pop[s.id])*100)}%`).join(' · ')+(S.mult<1?` · prestígio insuficiente (força ${Math.round(S.mult*100)}%)`:''));
+  if(r)log(r.msg,r.kind==='win'?'ok':r.kind==='dark'?'dk':'ko');
+  else{if(S.turn%10===0)announce();if(S.turn%2===0)pending=draw();}
+  render();
+};
+$('reset').onclick=reset;
+reset();
+</script>

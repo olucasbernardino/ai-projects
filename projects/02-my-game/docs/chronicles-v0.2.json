@@ -1,0 +1,2131 @@
+[
+ {
+  "bot": "Idle (no sliders)",
+  "name": "The Absent Architect",
+  "outcome": "lose",
+  "outcomeShare": 100,
+  "ending": "Vitalidade colapsou abaixo de 15%. Fim.",
+  "chapters": [
+   {
+    "turn": 1,
+    "lines": [
+     "Unrest rises: 9% of people are now rebels in the streets."
+    ],
+    "ev": null,
+    "idx": [
+     22,
+     21,
+     24,
+     91
+    ],
+    "freedom": 100,
+    "prestige": 24
+   },
+   {
+    "turn": 2,
+    "lines": [
+     "The Frontier zones attract 11% of the population."
+    ],
+    "ev": {
+     "title": "O incêndio do tédio",
+     "text": "Um grupo queimou um parque \"só para sentir algo\". Os vídeos viralizam entre jovens.",
+     "choice": "Convidá-los para a Zona de Fronteira",
+     "dark": false
+    },
+    "idx": [
+     19,
+     19,
+     23,
+     89
+    ],
+    "freedom": 100,
+    "prestige": 24
+   },
+   {
+    "turn": 3,
+    "lines": [
+     "Unrest rises: 19% of people are now rebels in the streets."
+    ],
+    "ev": null,
+    "idx": [
+     17,
+     16,
+     22,
+     81
+    ],
+    "freedom": 100,
+    "prestige": 28
+   },
+   {
+    "turn": 4,
+    "lines": [
+     "Unrest rises: 29% of people are now rebels in the streets."
+    ],
+    "ev": null,
+    "idx": [
+     15,
+     14,
+     21,
+     71
+    ],
+    "freedom": 100,
+    "prestige": 32
+   }
+  ],
+  "start": [
+   25,
+   25,
+   25,
+   95
+  ]
+ },
+ {
+  "bot": "Random every turn",
+  "name": "The Erratic Architect",
+  "outcome": "dark",
+  "outcomeShare": 62,
+  "ending": "Final sombrio — Ditadura Algorítmica: a Liberdade chegou a zero e mesmo assim o mundo desmorona.",
+  "chapters": [
+   {
+    "turn": 1,
+    "lines": [
+     "The Frontier zones attract 9% of the population."
+    ],
+    "ev": null,
+    "idx": [
+     26,
+     24,
+     28,
+     92
+    ],
+    "freedom": 95,
+    "prestige": 16
+   },
+   {
+    "turn": 2,
+    "lines": [
+     "New ways of life appear: divergent communities reach 34%.",
+     "Unrest rises: 12% of people are now rebels in the streets.",
+     "The Frontier zones attract 15% of the population."
+    ],
+    "ev": {
+     "title": "Os monges do silêncio",
+     "text": "Uma comunidade que recusa toda tecnologia pede cota de recursos. Críticos dizem que é ineficiente.",
+     "choice": "Conceder a cota e proteção",
+     "dark": false
+    },
+    "idx": [
+     24,
+     22,
+     34,
+     88
+    ],
+    "freedom": 90,
+    "prestige": 12
+   },
+   {
+    "turn": 3,
+    "lines": [
+     "New ways of life appear: divergent communities reach 39%.",
+     "Unrest rises: 18% of people are now rebels in the streets."
+    ],
+    "ev": null,
+    "idx": [
+     26,
+     21,
+     39,
+     82
+    ],
+    "freedom": 89,
+    "prestige": 11
+   },
+   {
+    "turn": 4,
+    "lines": [
+     "Unrest rises: 23% of people are now rebels in the streets."
+    ],
+    "ev": {
+     "title": "Morte na Fronteira",
+     "text": "Um explorador morreu na Zona de Anarquia Regulada. Famílias pedem o fechamento das zonas.",
+     "choice": "Manter as zonas abertas: o risco é real por escolha",
+     "dark": false
+    },
+    "idx": [
+     26,
+     23,
+     41,
+     77
+    ],
+    "freedom": 83,
+    "prestige": 9
+   },
+   {
+    "turn": 5,
+    "lines": [
+     "Unrest rises: 28% of people are now rebels in the streets.",
+     "The Frontier zones attract 21% of the population."
+    ],
+    "ev": null,
+    "idx": [
+     27,
+     21,
+     42,
+     72
+    ],
+    "freedom": 78,
+    "prestige": 9
+   },
+   {
+    "turn": 6,
+    "lines": [
+     "Passive life spreads: 64% now only consume what the AI makes.",
+     "The Frontier zones attract 29% of the population."
+    ],
+    "ev": {
+     "title": "A pintora que parou de pintar",
+     "text": "Lia, 34 anos, diz que não há motivo para criar quando a IA gera obras melhores em segundos. Milhares compartilham o desabafo.",
+     "choice": "Gerar para ela uma obra-prima personalizada",
+     "dark": false
+    },
+    "idx": [
+     21,
+     21,
+     44,
+     70
+    ],
+    "freedom": 69,
+    "prestige": 8
+   },
+   {
+    "turn": 7,
+    "lines": [
+     "New ways of life appear: divergent communities reach 48%.",
+     "The prestige treasury runs dry: honours lose 10% of their value."
+    ],
+    "ev": null,
+    "idx": [
+     21,
+     21,
+     48,
+     67
+    ],
+    "freedom": 60,
+    "prestige": 7
+   },
+   {
+    "turn": 8,
+    "lines": [
+     "The Frontier zones attract 34% of the population."
+    ],
+    "ev": {
+     "title": "Inflação de prestígio",
+     "text": "Medalhas de honra viraram tão comuns que ninguém mais se importa com elas.",
+     "choice": "Cortar metade das honrarias",
+     "dark": false
+    },
+    "idx": [
+     22,
+     19,
+     51,
+     64
+    ],
+    "freedom": 55,
+    "prestige": 5
+   },
+   {
+    "turn": 9,
+    "lines": [
+     "More people hand their choices to the AI (61% delegators).",
+     "Unrest rises: 41% of people are now rebels in the streets.",
+     "The prestige treasury runs dry: honours lose 41% of their value."
+    ],
+    "ev": null,
+    "idx": [
+     23,
+     17,
+     51,
+     59
+    ],
+    "freedom": 54,
+    "prestige": 8
+   },
+   {
+    "turn": 10,
+    "lines": [
+     "Assemblies come alive: 22% now deliberate before voting.",
+     "The Frontier zones attract 42% of the population."
+    ],
+    "ev": {
+     "title": "O botão \"Concordo com a IA\"",
+     "text": "Em Vila Aurora, 92% dos votos da assembleia foram um clique em \"concordo\" em menos de 3 segundos.",
+     "choice": "Exigir uma justificativa escrita para cada voto",
+     "dark": false
+    },
+    "idx": [
+     22,
+     22,
+     49,
+     56
+    ],
+    "freedom": 55,
+    "prestige": 8
+   },
+   {
+    "turn": 11,
+    "lines": [
+     "Society grows more uniform: 46% live the standard life.",
+     "The Frontier zones attract 46% of the population.",
+     "The prestige treasury runs dry: honours lose 6% of their value."
+    ],
+    "ev": null,
+    "idx": [
+     25,
+     25,
+     46,
+     56
+    ],
+    "freedom": 54,
+    "prestige": 8
+   },
+   {
+    "turn": 12,
+    "lines": [
+     "The streets calm down; rebels fall to 37%.",
+     "The Frontier zones attract 56% of the population.",
+     "Freedom falls to 49%: cameras on every corner."
+    ],
+    "ev": {
+     "title": "O incêndio do tédio",
+     "text": "Um grupo queimou um parque \"só para sentir algo\". Os vídeos viralizam entre jovens.",
+     "choice": "Convidá-los para a Zona de Fronteira",
+     "dark": false
+    },
+    "idx": [
+     27,
+     24,
+     46,
+     63
+    ],
+    "freedom": 49,
+    "prestige": 5
+   },
+   {
+    "turn": 13,
+    "lines": [
+     "The prestige treasury runs dry: honours lose 10% of their value."
+    ],
+    "ev": null,
+    "idx": [
+     29,
+     23,
+     45,
+     65
+    ],
+    "freedom": 36,
+    "prestige": 9
+   },
+   {
+    "turn": 14,
+    "lines": [
+     "Passive life spreads: 59% now only consume what the AI makes.",
+     "New ways of life appear: divergent communities reach 53%.",
+     "Unrest rises: 43% of people are now rebels in the streets."
+    ],
+    "ev": {
+     "title": "A seita de mentira",
+     "text": "Investigação de pares revela 400 pessoas que inventaram uma \"cultura\" só para receber subsídios.",
+     "choice": "Punir só os culpados, publicamente",
+     "dark": false
+    },
+    "idx": [
+     26,
+     21,
+     53,
+     57
+    ],
+    "freedom": 32,
+    "prestige": 13
+   },
+   {
+    "turn": 15,
+    "lines": [
+     "The Frontier zones attract 54% of the population."
+    ],
+    "ev": null,
+    "idx": [
+     25,
+     21,
+     55,
+     58
+    ],
+    "freedom": 35,
+    "prestige": 13
+   },
+   {
+    "turn": 16,
+    "lines": [
+     "Assemblies come alive: 25% now deliberate before voting."
+    ],
+    "ev": {
+     "title": "O conselho que errou",
+     "text": "Um conselho local decidiu sozinho sobre a água do bairro e errou. Ninguém se feriu, mas a confiança caiu.",
+     "choice": "Manter a autonomia: errar faz parte de aprender",
+     "dark": false
+    },
+    "idx": [
+     26,
+     25,
+     55,
+     56
+    ],
+    "freedom": 34,
+    "prestige": 15
+   },
+   {
+    "turn": 17,
+    "lines": [
+     "More people hand their choices to the AI (55% delegators).",
+     "Society grows more uniform: 48% live the standard life."
+    ],
+    "ev": null,
+    "idx": [
+     25,
+     25,
+     50,
+     53
+    ],
+    "freedom": 29,
+    "prestige": 22
+   },
+   {
+    "turn": 18,
+    "lines": [
+     "Passive life spreads: 67% now only consume what the AI makes.",
+     "More people hand their choices to the AI (61% delegators).",
+     "The streets calm down; rebels fall to 35%."
+    ],
+    "ev": {
+     "title": "A proposta do Conselho de Eficiência",
+     "text": "Especialistas propõem implantes de humor que eliminariam o tédio e, com ele, a rebelião.",
+     "choice": "Aprovar os implantes",
+     "dark": true
+    },
+    "idx": [
+     17,
+     23,
+     51,
+     65
+    ],
+    "freedom": 12,
+    "prestige": 25
+   },
+   {
+    "turn": 19,
+    "lines": [
+     "Creators grow to 21%: studios and labs fill up again.",
+     "Society grows more uniform: 52% live the standard life."
+    ],
+    "ev": null,
+    "idx": [
+     21,
+     22,
+     47,
+     64
+    ],
+    "freedom": 7,
+    "prestige": 28
+   },
+   {
+    "turn": 20,
+    "lines": [
+     "New ways of life appear: divergent communities reach 52%."
+    ],
+    "ev": null,
+    "idx": [
+     19,
+     22,
+     52,
+     62
+    ],
+    "freedom": 0,
+    "prestige": 31
+   }
+  ],
+  "start": [
+   25,
+   25,
+   25,
+   95
+  ]
+ },
+ {
+  "bot": "Adaptive, random choices",
+  "name": "The Firefighter",
+  "outcome": "lose",
+  "outcomeShare": 83,
+  "ending": "Sobreviveu, mas estagnou: alguma meta não foi atingida.",
+  "chapters": [
+   {
+    "turn": 1,
+    "lines": [
+     "Creators grow to 29%: studios and labs fill up again.",
+     "Unrest rises: 9% of people are now rebels in the streets."
+    ],
+    "ev": null,
+    "idx": [
+     29,
+     27,
+     28,
+     91
+    ],
+    "freedom": 100,
+    "prestige": 14
+   },
+   {
+    "turn": 2,
+    "lines": [
+     "Unrest rises: 15% of people are now rebels in the streets."
+    ],
+    "ev": {
+     "title": "Inflação de prestígio",
+     "text": "Medalhas de honra viraram tão comuns que ninguém mais se importa com elas.",
+     "choice": "Cortar metade das honrarias",
+     "dark": false
+    },
+    "idx": [
+     31,
+     30,
+     31,
+     85
+    ],
+    "freedom": 100,
+    "prestige": 6
+   },
+   {
+    "turn": 3,
+    "lines": [
+     "Unrest rises: 23% of people are now rebels in the streets.",
+     "The prestige treasury runs dry: honours lose 18% of their value."
+    ],
+    "ev": null,
+    "idx": [
+     31,
+     29,
+     32,
+     77
+    ],
+    "freedom": 100,
+    "prestige": 6
+   },
+   {
+    "turn": 4,
+    "lines": [
+     "Unrest rises: 29% of people are now rebels in the streets.",
+     "The Frontier zones attract 21% of the population."
+    ],
+    "ev": {
+     "title": "O incêndio do tédio",
+     "text": "Um grupo queimou um parque \"só para sentir algo\". Os vídeos viralizam entre jovens.",
+     "choice": "Convidá-los para a Zona de Fronteira",
+     "dark": false
+    },
+    "idx": [
+     29,
+     28,
+     32,
+     71
+    ],
+    "freedom": 100,
+    "prestige": 2
+   },
+   {
+    "turn": 5,
+    "lines": [
+     "Unrest rises: 39% of people are now rebels in the streets."
+    ],
+    "ev": null,
+    "idx": [
+     26,
+     25,
+     30,
+     61
+    ],
+    "freedom": 100,
+    "prestige": 6
+   },
+   {
+    "turn": 6,
+    "lines": [
+     "Unrest rises: 50% of people are now rebels in the streets."
+    ],
+    "ev": {
+     "title": "Morte na Fronteira",
+     "text": "Um explorador morreu na Zona de Anarquia Regulada. Famílias pedem o fechamento das zonas.",
+     "choice": "Fechar as zonas por segurança",
+     "dark": false
+    },
+    "idx": [
+     24,
+     24,
+     29,
+     50
+    ],
+    "freedom": 100,
+    "prestige": 7
+   },
+   {
+    "turn": 7,
+    "lines": [
+     "The Frontier zones attract 35% of the population."
+    ],
+    "ev": null,
+    "idx": [
+     25,
+     23,
+     28,
+     50
+    ],
+    "freedom": 100,
+    "prestige": 7
+   },
+   {
+    "turn": 8,
+    "lines": [
+     "The Frontier zones attract 44% of the population."
+    ],
+    "ev": {
+     "title": "Os monges do silêncio",
+     "text": "Uma comunidade que recusa toda tecnologia pede cota de recursos. Críticos dizem que é ineficiente.",
+     "choice": "Conceder a cota e proteção",
+     "dark": false
+    },
+    "idx": [
+     23,
+     22,
+     31,
+     52
+    ],
+    "freedom": 100,
+    "prestige": 2
+   },
+   {
+    "turn": 9,
+    "lines": [
+     "Unrest rises: 54% of people are now rebels in the streets."
+    ],
+    "ev": null,
+    "idx": [
+     21,
+     20,
+     30,
+     46
+    ],
+    "freedom": 100,
+    "prestige": 7
+   },
+   {
+    "turn": 10,
+    "lines": [
+     "Assemblies come alive: 25% now deliberate before voting.",
+     "The streets calm down; rebels fall to 50%.",
+     "The Frontier zones attract 48% of the population."
+    ],
+    "ev": {
+     "title": "O botão \"Concordo com a IA\"",
+     "text": "Em Vila Aurora, 92% dos votos da assembleia foram um clique em \"concordo\" em menos de 3 segundos.",
+     "choice": "Exigir uma justificativa escrita para cada voto",
+     "dark": false
+    },
+    "idx": [
+     20,
+     25,
+     28,
+     50
+    ],
+    "freedom": 98,
+    "prestige": 7
+   },
+   {
+    "turn": 11,
+    "lines": [
+     "The streets calm down; rebels fall to 44%.",
+     "The Frontier zones attract 55% of the population."
+    ],
+    "ev": null,
+    "idx": [
+     21,
+     23,
+     27,
+     56
+    ],
+    "freedom": 100,
+    "prestige": 8
+   },
+   {
+    "turn": 12,
+    "lines": [
+     "Creators grow to 25%: studios and labs fill up again.",
+     "The streets calm down; rebels fall to 39%.",
+     "The Frontier zones attract 61% of the population."
+    ],
+    "ev": {
+     "title": "O plágio premiado",
+     "text": "Uma sinfonia premiada era cópia quase exata de um algoritmo antigo. O autor diz que \"tudo é remix\".",
+     "choice": "Revogar o prêmio publicamente",
+     "dark": false
+    },
+    "idx": [
+     25,
+     22,
+     26,
+     61
+    ],
+    "freedom": 97,
+    "prestige": 8
+   },
+   {
+    "turn": 13,
+    "lines": [
+     "The streets calm down; rebels fall to 35%.",
+     "The Frontier zones attract 65% of the population.",
+     "The prestige treasury runs dry: honours lose 25% of their value."
+    ],
+    "ev": null,
+    "idx": [
+     25,
+     22,
+     26,
+     65
+    ],
+    "freedom": 100,
+    "prestige": 8
+   },
+   {
+    "turn": 14,
+    "lines": [],
+    "ev": {
+     "title": "A proposta do Conselho de Eficiência",
+     "text": "Especialistas propõem implantes de humor que eliminariam o tédio e, com ele, a rebelião.",
+     "choice": "Recusar: o tédio também é humano",
+     "dark": false
+    },
+    "idx": [
+     25,
+     22,
+     27,
+     66
+    ],
+    "freedom": 100,
+    "prestige": 8
+   },
+   {
+    "turn": 15,
+    "lines": [],
+    "ev": null,
+    "idx": [
+     24,
+     23,
+     28,
+     66
+    ],
+    "freedom": 100,
+    "prestige": 8
+   },
+   {
+    "turn": 16,
+    "lines": [
+     "Assemblies come alive: 27% now deliberate before voting."
+    ],
+    "ev": {
+     "title": "O conselho que errou",
+     "text": "Um conselho local decidiu sozinho sobre a água do bairro e errou. Ninguém se feriu, mas a confiança caiu.",
+     "choice": "Manter a autonomia: errar faz parte de aprender",
+     "dark": false
+    },
+    "idx": [
+     24,
+     27,
+     29,
+     67
+    ],
+    "freedom": 100,
+    "prestige": 9
+   },
+   {
+    "turn": 17,
+    "lines": [
+     "The streets calm down; rebels fall to 29%."
+    ],
+    "ev": null,
+    "idx": [
+     25,
+     25,
+     29,
+     71
+    ],
+    "freedom": 100,
+    "prestige": 9
+   },
+   {
+    "turn": 18,
+    "lines": [
+     "Society grows more uniform: 67% live the standard life."
+    ],
+    "ev": {
+     "title": "A seita de mentira",
+     "text": "Investigação de pares revela 400 pessoas que inventaram uma \"cultura\" só para receber subsídios.",
+     "choice": "Endurecer a verificação para todos os nichos",
+     "dark": false
+    },
+    "idx": [
+     26,
+     24,
+     28,
+     71
+    ],
+    "freedom": 100,
+    "prestige": 9
+   },
+   {
+    "turn": 19,
+    "lines": [],
+    "ev": null,
+    "idx": [
+     26,
+     25,
+     30,
+     72
+    ],
+    "freedom": 100,
+    "prestige": 9
+   },
+   {
+    "turn": 20,
+    "lines": [],
+    "ev": {
+     "title": "A pintora que parou de pintar",
+     "text": "Lia, 34 anos, diz que não há motivo para criar quando a IA gera obras melhores em segundos. Milhares compartilham o desabafo.",
+     "choice": "Gerar para ela uma obra-prima personalizada",
+     "dark": false
+    },
+    "idx": [
+     22,
+     25,
+     31,
+     70
+    ],
+    "freedom": 100,
+    "prestige": 9
+   },
+   {
+    "turn": 21,
+    "lines": [],
+    "ev": null,
+    "idx": [
+     23,
+     25,
+     31,
+     72
+    ],
+    "freedom": 100,
+    "prestige": 9
+   },
+   {
+    "turn": 22,
+    "lines": [],
+    "ev": {
+     "title": "A seita de mentira",
+     "text": "Investigação de pares revela 400 pessoas que inventaram uma \"cultura\" só para receber subsídios.",
+     "choice": "Punir só os culpados, publicamente",
+     "dark": false
+    },
+    "idx": [
+     24,
+     25,
+     34,
+     72
+    ],
+    "freedom": 97,
+    "prestige": 9
+   },
+   {
+    "turn": 23,
+    "lines": [],
+    "ev": null,
+    "idx": [
+     25,
+     25,
+     34,
+     73
+    ],
+    "freedom": 100,
+    "prestige": 9
+   },
+   {
+    "turn": 24,
+    "lines": [],
+    "ev": {
+     "title": "Inflação de prestígio",
+     "text": "Medalhas de honra viraram tão comuns que ninguém mais se importa com elas.",
+     "choice": "Cortar metade das honrarias",
+     "dark": false
+    },
+    "idx": [
+     27,
+     25,
+     33,
+     74
+    ],
+    "freedom": 100,
+    "prestige": 6
+   },
+   {
+    "turn": 25,
+    "lines": [],
+    "ev": null,
+    "idx": [
+     26,
+     24,
+     32,
+     72
+    ],
+    "freedom": 100,
+    "prestige": 9
+   },
+   {
+    "turn": 26,
+    "lines": [
+     "Unrest rises: 33% of people are now rebels in the streets."
+    ],
+    "ev": {
+     "title": "Morte na Fronteira",
+     "text": "Um explorador morreu na Zona de Anarquia Regulada. Famílias pedem o fechamento das zonas.",
+     "choice": "Fechar as zonas por segurança",
+     "dark": false
+    },
+    "idx": [
+     27,
+     25,
+     32,
+     67
+    ],
+    "freedom": 100,
+    "prestige": 9
+   },
+   {
+    "turn": 27,
+    "lines": [
+     "The streets calm down; rebels fall to 28%.",
+     "The Frontier zones attract 72% of the population."
+    ],
+    "ev": null,
+    "idx": [
+     27,
+     25,
+     32,
+     72
+    ],
+    "freedom": 100,
+    "prestige": 9
+   },
+   {
+    "turn": 28,
+    "lines": [
+     "Passive life spreads: 53% now only consume what the AI makes.",
+     "The streets calm down; rebels fall to 17%."
+    ],
+    "ev": {
+     "title": "A proposta do Conselho de Eficiência",
+     "text": "Especialistas propõem implantes de humor que eliminariam o tédio e, com ele, a rebelião.",
+     "choice": "Aprovar os implantes",
+     "dark": true
+    },
+    "idx": [
+     22,
+     25,
+     32,
+     83
+    ],
+    "freedom": 80,
+    "prestige": 9
+   },
+   {
+    "turn": 29,
+    "lines": [
+     "Unrest rises: 23% of people are now rebels in the streets."
+    ],
+    "ev": null,
+    "idx": [
+     24,
+     26,
+     33,
+     77
+    ],
+    "freedom": 83,
+    "prestige": 9
+   },
+   {
+    "turn": 30,
+    "lines": [],
+    "ev": null,
+    "idx": [
+     27,
+     26,
+     33,
+     74
+    ],
+    "freedom": 86,
+    "prestige": 9
+   }
+  ],
+  "start": [
+   25,
+   25,
+   25,
+   95
+  ]
+ },
+ {
+  "bot": "Best fixed plan, good choices",
+  "name": "The Planner",
+  "outcome": "win",
+  "outcomeShare": 100,
+  "ending": "Vitória: 30 gerações de uma civilização viva, livre e diversa.",
+  "chapters": [
+   {
+    "turn": 1,
+    "lines": [
+     "The Frontier zones attract 11% of the population."
+    ],
+    "ev": null,
+    "idx": [
+     26,
+     27,
+     25,
+     92
+    ],
+    "freedom": 100,
+    "prestige": 15
+   },
+   {
+    "turn": 2,
+    "lines": [
+     "Assemblies come alive: 33% now deliberate before voting.",
+     "Unrest rises: 13% of people are now rebels in the streets.",
+     "The Frontier zones attract 21% of the population."
+    ],
+    "ev": {
+     "title": "O botão \"Concordo com a IA\"",
+     "text": "Em Vila Aurora, 92% dos votos da assembleia foram um clique em \"concordo\" em menos de 3 segundos.",
+     "choice": "Exigir uma justificativa escrita para cada voto",
+     "dark": false
+    },
+    "idx": [
+     27,
+     33,
+     26,
+     87
+    ],
+    "freedom": 98,
+    "prestige": 11
+   },
+   {
+    "turn": 3,
+    "lines": [
+     "Unrest rises: 17% of people are now rebels in the streets.",
+     "The Frontier zones attract 35% of the population."
+    ],
+    "ev": null,
+    "idx": [
+     27,
+     34,
+     26,
+     83
+    ],
+    "freedom": 100,
+    "prestige": 9
+   },
+   {
+    "turn": 4,
+    "lines": [
+     "Creators grow to 32%: studios and labs fill up again.",
+     "The Frontier zones attract 47% of the population.",
+     "The prestige treasury runs dry: honours lose 12% of their value."
+    ],
+    "ev": {
+     "title": "O plágio premiado",
+     "text": "Uma sinfonia premiada era cópia quase exata de um algoritmo antigo. O autor diz que \"tudo é remix\".",
+     "choice": "Revogar o prêmio publicamente",
+     "dark": false
+    },
+    "idx": [
+     32,
+     35,
+     26,
+     80
+    ],
+    "freedom": 97,
+    "prestige": 8
+   },
+   {
+    "turn": 5,
+    "lines": [
+     "The Frontier zones attract 56% of the population."
+    ],
+    "ev": null,
+    "idx": [
+     31,
+     34,
+     26,
+     78
+    ],
+    "freedom": 100,
+    "prestige": 9
+   },
+   {
+    "turn": 6,
+    "lines": [
+     "The Frontier zones attract 64% of the population."
+    ],
+    "ev": {
+     "title": "Inflação de prestígio",
+     "text": "Medalhas de honra viraram tão comuns que ninguém mais se importa com elas.",
+     "choice": "Cortar metade das honrarias",
+     "dark": false
+    },
+    "idx": [
+     31,
+     34,
+     26,
+     77
+    ],
+    "freedom": 100,
+    "prestige": 6
+   },
+   {
+    "turn": 7,
+    "lines": [],
+    "ev": null,
+    "idx": [
+     30,
+     33,
+     26,
+     74
+    ],
+    "freedom": 100,
+    "prestige": 9
+   },
+   {
+    "turn": 8,
+    "lines": [],
+    "ev": {
+     "title": "Morte na Fronteira",
+     "text": "Um explorador morreu na Zona de Anarquia Regulada. Famílias pedem o fechamento das zonas.",
+     "choice": "Manter as zonas abertas: o risco é real por escolha",
+     "dark": false
+    },
+    "idx": [
+     31,
+     33,
+     26,
+     75
+    ],
+    "freedom": 100,
+    "prestige": 10
+   },
+   {
+    "turn": 9,
+    "lines": [
+     "The Frontier zones attract 72% of the population."
+    ],
+    "ev": null,
+    "idx": [
+     31,
+     33,
+     27,
+     77
+    ],
+    "freedom": 100,
+    "prestige": 10
+   },
+   {
+    "turn": 10,
+    "lines": [
+     "New ways of life appear: divergent communities reach 32%.",
+     "The Frontier zones attract 76% of the population."
+    ],
+    "ev": {
+     "title": "Os monges do silêncio",
+     "text": "Uma comunidade que recusa toda tecnologia pede cota de recursos. Críticos dizem que é ineficiente.",
+     "choice": "Conceder a cota e proteção",
+     "dark": false
+    },
+    "idx": [
+     32,
+     34,
+     32,
+     78
+    ],
+    "freedom": 100,
+    "prestige": 5
+   },
+   {
+    "turn": 11,
+    "lines": [],
+    "ev": null,
+    "idx": [
+     30,
+     32,
+     31,
+     75
+    ],
+    "freedom": 100,
+    "prestige": 10
+   },
+   {
+    "turn": 12,
+    "lines": [
+     "Assemblies come alive: 36% now deliberate before voting."
+    ],
+    "ev": {
+     "title": "O conselho que errou",
+     "text": "Um conselho local decidiu sozinho sobre a água do bairro e errou. Ninguém se feriu, mas a confiança caiu.",
+     "choice": "Manter a autonomia: errar faz parte de aprender",
+     "dark": false
+    },
+    "idx": [
+     31,
+     36,
+     31,
+     77
+    ],
+    "freedom": 100,
+    "prestige": 10
+   },
+   {
+    "turn": 13,
+    "lines": [],
+    "ev": null,
+    "idx": [
+     32,
+     36,
+     31,
+     79
+    ],
+    "freedom": 100,
+    "prestige": 11
+   },
+   {
+    "turn": 14,
+    "lines": [
+     "The streets calm down; rebels fall to 15%.",
+     "The Frontier zones attract 85% of the population."
+    ],
+    "ev": {
+     "title": "O incêndio do tédio",
+     "text": "Um grupo queimou um parque \"só para sentir algo\". Os vídeos viralizam entre jovens.",
+     "choice": "Convidá-los para a Zona de Fronteira",
+     "dark": false
+    },
+    "idx": [
+     32,
+     36,
+     31,
+     85
+    ],
+    "freedom": 100,
+    "prestige": 8
+   },
+   {
+    "turn": 15,
+    "lines": [
+     "The prestige treasury runs dry: honours lose 23% of their value."
+    ],
+    "ev": null,
+    "idx": [
+     32,
+     35,
+     31,
+     85
+    ],
+    "freedom": 100,
+    "prestige": 11
+   },
+   {
+    "turn": 16,
+    "lines": [],
+    "ev": {
+     "title": "A seita de mentira",
+     "text": "Investigação de pares revela 400 pessoas que inventaram uma \"cultura\" só para receber subsídios.",
+     "choice": "Punir só os culpados, publicamente",
+     "dark": false
+    },
+    "idx": [
+     32,
+     35,
+     34,
+     86
+    ],
+    "freedom": 97,
+    "prestige": 12
+   },
+   {
+    "turn": 17,
+    "lines": [],
+    "ev": null,
+    "idx": [
+     33,
+     35,
+     33,
+     87
+    ],
+    "freedom": 100,
+    "prestige": 13
+   },
+   {
+    "turn": 18,
+    "lines": [],
+    "ev": {
+     "title": "A proposta do Conselho de Eficiência",
+     "text": "Especialistas propõem implantes de humor que eliminariam o tédio e, com ele, a rebelião.",
+     "choice": "Recusar: o tédio também é humano",
+     "dark": false
+    },
+    "idx": [
+     33,
+     35,
+     33,
+     88
+    ],
+    "freedom": 100,
+    "prestige": 15
+   },
+   {
+    "turn": 19,
+    "lines": [],
+    "ev": null,
+    "idx": [
+     34,
+     35,
+     33,
+     89
+    ],
+    "freedom": 100,
+    "prestige": 16
+   },
+   {
+    "turn": 20,
+    "lines": [
+     "Creators grow to 39%: studios and labs fill up again."
+    ],
+    "ev": {
+     "title": "A pintora que parou de pintar",
+     "text": "Lia, 34 anos, diz que não há motivo para criar quando a IA gera obras melhores em segundos. Milhares compartilham o desabafo.",
+     "choice": "Financiar um festival só de obras feitas à mão",
+     "dark": false
+    },
+    "idx": [
+     39,
+     35,
+     33,
+     90
+    ],
+    "freedom": 100,
+    "prestige": 11
+   },
+   {
+    "turn": 21,
+    "lines": [],
+    "ev": null,
+    "idx": [
+     39,
+     34,
+     33,
+     90
+    ],
+    "freedom": 100,
+    "prestige": 13
+   },
+   {
+    "turn": 22,
+    "lines": [
+     "Creators grow to 44%: studios and labs fill up again."
+    ],
+    "ev": {
+     "title": "A pintora que parou de pintar",
+     "text": "Lia, 34 anos, diz que não há motivo para criar quando a IA gera obras melhores em segundos. Milhares compartilham o desabafo.",
+     "choice": "Financiar um festival só de obras feitas à mão",
+     "dark": false
+    },
+    "idx": [
+     44,
+     34,
+     33,
+     91
+    ],
+    "freedom": 100,
+    "prestige": 9
+   },
+   {
+    "turn": 23,
+    "lines": [
+     "The prestige treasury runs dry: honours lose 9% of their value."
+    ],
+    "ev": null,
+    "idx": [
+     43,
+     34,
+     33,
+     91
+    ],
+    "freedom": 100,
+    "prestige": 12
+   },
+   {
+    "turn": 24,
+    "lines": [
+     "New ways of life appear: divergent communities reach 38%."
+    ],
+    "ev": {
+     "title": "Os monges do silêncio",
+     "text": "Uma comunidade que recusa toda tecnologia pede cota de recursos. Críticos dizem que é ineficiente.",
+     "choice": "Conceder a cota e proteção",
+     "dark": false
+    },
+    "idx": [
+     42,
+     34,
+     38,
+     91
+    ],
+    "freedom": 100,
+    "prestige": 9
+   },
+   {
+    "turn": 25,
+    "lines": [
+     "The prestige treasury runs dry: honours lose 10% of their value."
+    ],
+    "ev": null,
+    "idx": [
+     41,
+     33,
+     37,
+     91
+    ],
+    "freedom": 100,
+    "prestige": 12
+   },
+   {
+    "turn": 26,
+    "lines": [],
+    "ev": {
+     "title": "O plágio premiado",
+     "text": "Uma sinfonia premiada era cópia quase exata de um algoritmo antigo. O autor diz que \"tudo é remix\".",
+     "choice": "Abrir um debate sobre originalidade",
+     "dark": false
+    },
+    "idx": [
+     41,
+     36,
+     36,
+     92
+    ],
+    "freedom": 100,
+    "prestige": 14
+   },
+   {
+    "turn": 27,
+    "lines": [],
+    "ev": null,
+    "idx": [
+     41,
+     36,
+     36,
+     92
+    ],
+    "freedom": 100,
+    "prestige": 17
+   },
+   {
+    "turn": 28,
+    "lines": [],
+    "ev": {
+     "title": "A proposta do Conselho de Eficiência",
+     "text": "Especialistas propõem implantes de humor que eliminariam o tédio e, com ele, a rebelião.",
+     "choice": "Recusar: o tédio também é humano",
+     "dark": false
+    },
+    "idx": [
+     40,
+     36,
+     36,
+     93
+    ],
+    "freedom": 100,
+    "prestige": 19
+   },
+   {
+    "turn": 29,
+    "lines": [],
+    "ev": null,
+    "idx": [
+     40,
+     36,
+     35,
+     93
+    ],
+    "freedom": 100,
+    "prestige": 21
+   },
+   {
+    "turn": 30,
+    "lines": [],
+    "ev": null,
+    "idx": [
+     40,
+     36,
+     35,
+     94
+    ],
+    "freedom": 100,
+    "prestige": 23
+   }
+  ],
+  "start": [
+   25,
+   25,
+   25,
+   95
+  ]
+ },
+ {
+  "bot": "Best fixed plan, worst choices",
+  "name": "The Planner Who Chose Badly",
+  "outcome": "lose",
+  "outcomeShare": 98,
+  "ending": "Sobreviveu, mas estagnou: alguma meta não foi atingida.",
+  "chapters": [
+   {
+    "turn": 1,
+    "lines": [
+     "The Frontier zones attract 11% of the population."
+    ],
+    "ev": null,
+    "idx": [
+     26,
+     27,
+     25,
+     92
+    ],
+    "freedom": 100,
+    "prestige": 15
+   },
+   {
+    "turn": 2,
+    "lines": [
+     "Unrest rises: 13% of people are now rebels in the streets.",
+     "The Frontier zones attract 21% of the population."
+    ],
+    "ev": {
+     "title": "O conselho que errou",
+     "text": "Um conselho local decidiu sozinho sobre a água do bairro e errou. Ninguém se feriu, mas a confiança caiu.",
+     "choice": "Devolver a decisão à IA",
+     "dark": false
+    },
+    "idx": [
+     27,
+     22,
+     26,
+     87
+    ],
+    "freedom": 100,
+    "prestige": 11
+   },
+   {
+    "turn": 3,
+    "lines": [
+     "Unrest rises: 17% of people are now rebels in the streets.",
+     "The Frontier zones attract 35% of the population."
+    ],
+    "ev": null,
+    "idx": [
+     27,
+     24,
+     26,
+     83
+    ],
+    "freedom": 100,
+    "prestige": 8
+   },
+   {
+    "turn": 4,
+    "lines": [
+     "The Frontier zones attract 46% of the population.",
+     "The prestige treasury runs dry: honours lose 18% of their value."
+    ],
+    "ev": {
+     "title": "Inflação de prestígio",
+     "text": "Medalhas de honra viraram tão comuns que ninguém mais se importa com elas.",
+     "choice": "Criar uma nova honraria, ainda mais rara",
+     "dark": false
+    },
+    "idx": [
+     27,
+     24,
+     26,
+     80
+    ],
+    "freedom": 98,
+    "prestige": 13
+   },
+   {
+    "turn": 5,
+    "lines": [
+     "The Frontier zones attract 58% of the population."
+    ],
+    "ev": null,
+    "idx": [
+     28,
+     25,
+     26,
+     79
+    ],
+    "freedom": 100,
+    "prestige": 12
+   },
+   {
+    "turn": 6,
+    "lines": [
+     "Society grows more uniform: 66% live the standard life.",
+     "The Frontier zones attract 67% of the population."
+    ],
+    "ev": {
+     "title": "Os monges do silêncio",
+     "text": "Uma comunidade que recusa toda tecnologia pede cota de recursos. Críticos dizem que é ineficiente.",
+     "choice": "Negar: recursos devem ir para o que funciona",
+     "dark": false
+    },
+    "idx": [
+     29,
+     27,
+     22,
+     79
+    ],
+    "freedom": 100,
+    "prestige": 11
+   },
+   {
+    "turn": 7,
+    "lines": [
+     "The Frontier zones attract 74% of the population."
+    ],
+    "ev": null,
+    "idx": [
+     29,
+     27,
+     22,
+     81
+    ],
+    "freedom": 100,
+    "prestige": 10
+   },
+   {
+    "turn": 8,
+    "lines": [
+     "The streets calm down; rebels fall to 12%.",
+     "The Frontier zones attract 78% of the population.",
+     "The prestige treasury runs dry: honours lose 1% of their value."
+    ],
+    "ev": {
+     "title": "O incêndio do tédio",
+     "text": "Um grupo queimou um parque \"só para sentir algo\". Os vídeos viralizam entre jovens.",
+     "choice": "Vigilância total nas praças por um ano",
+     "dark": true
+    },
+    "idx": [
+     30,
+     28,
+     23,
+     88
+    ],
+    "freedom": 88,
+    "prestige": 10
+   },
+   {
+    "turn": 9,
+    "lines": [
+     "The Frontier zones attract 82% of the population."
+    ],
+    "ev": null,
+    "idx": [
+     30,
+     29,
+     23,
+     88
+    ],
+    "freedom": 91,
+    "prestige": 10
+   },
+   {
+    "turn": 10,
+    "lines": [
+     "Passive life spreads: 61% now only consume what the AI makes.",
+     "The streets calm down; rebels fall to 1%."
+    ],
+    "ev": {
+     "title": "A proposta do Conselho de Eficiência",
+     "text": "Especialistas propõem implantes de humor que eliminariam o tédio e, com ele, a rebelião.",
+     "choice": "Aprovar os implantes",
+     "dark": true
+    },
+    "idx": [
+     25,
+     29,
+     24,
+     99
+    ],
+    "freedom": 74,
+    "prestige": 10
+   },
+   {
+    "turn": 11,
+    "lines": [
+     "The Frontier zones attract 90% of the population."
+    ],
+    "ev": null,
+    "idx": [
+     26,
+     30,
+     25,
+     99
+    ],
+    "freedom": 77,
+    "prestige": 10
+   },
+   {
+    "turn": 12,
+    "lines": [],
+    "ev": {
+     "title": "O plágio premiado",
+     "text": "Uma sinfonia premiada era cópia quase exata de um algoritmo antigo. O autor diz que \"tudo é remix\".",
+     "choice": "Abrir um debate sobre originalidade",
+     "dark": false
+    },
+    "idx": [
+     27,
+     33,
+     25,
+     99
+    ],
+    "freedom": 80,
+    "prestige": 11
+   },
+   {
+    "turn": 13,
+    "lines": [],
+    "ev": null,
+    "idx": [
+     27,
+     33,
+     25,
+     99
+    ],
+    "freedom": 83,
+    "prestige": 12
+   },
+   {
+    "turn": 14,
+    "lines": [
+     "Society grows more uniform: 70% live the standard life."
+    ],
+    "ev": {
+     "title": "A seita de mentira",
+     "text": "Investigação de pares revela 400 pessoas que inventaram uma \"cultura\" só para receber subsídios.",
+     "choice": "Endurecer a verificação para todos os nichos",
+     "dark": false
+    },
+    "idx": [
+     28,
+     33,
+     24,
+     99
+    ],
+    "freedom": 86,
+    "prestige": 13
+   },
+   {
+    "turn": 15,
+    "lines": [],
+    "ev": null,
+    "idx": [
+     29,
+     33,
+     25,
+     99
+    ],
+    "freedom": 89,
+    "prestige": 14
+   },
+   {
+    "turn": 16,
+    "lines": [
+     "Unrest rises: 7% of people are now rebels in the streets."
+    ],
+    "ev": {
+     "title": "Morte na Fronteira",
+     "text": "Um explorador morreu na Zona de Anarquia Regulada. Famílias pedem o fechamento das zonas.",
+     "choice": "Fechar as zonas por segurança",
+     "dark": false
+    },
+    "idx": [
+     29,
+     33,
+     25,
+     93
+    ],
+    "freedom": 92,
+    "prestige": 15
+   },
+   {
+    "turn": 17,
+    "lines": [],
+    "ev": null,
+    "idx": [
+     30,
+     33,
+     26,
+     93
+    ],
+    "freedom": 95,
+    "prestige": 16
+   },
+   {
+    "turn": 18,
+    "lines": [
+     "Rubber-stamp voting spreads: 47% click \"agree\" without reading."
+    ],
+    "ev": {
+     "title": "O botão \"Concordo com a IA\"",
+     "text": "Em Vila Aurora, 92% dos votos da assembleia foram um clique em \"concordo\" em menos de 3 segundos.",
+     "choice": "Aceitar: o resultado foi bom de qualquer forma",
+     "dark": false
+    },
+    "idx": [
+     30,
+     28,
+     26,
+     94
+    ],
+    "freedom": 98,
+    "prestige": 17
+   },
+   {
+    "turn": 19,
+    "lines": [],
+    "ev": null,
+    "idx": [
+     31,
+     29,
+     27,
+     94
+    ],
+    "freedom": 100,
+    "prestige": 18
+   },
+   {
+    "turn": 20,
+    "lines": [
+     "Passive life spreads: 60% now only consume what the AI makes."
+    ],
+    "ev": {
+     "title": "A pintora que parou de pintar",
+     "text": "Lia, 34 anos, diz que não há motivo para criar quando a IA gera obras melhores em segundos. Milhares compartilham o desabafo.",
+     "choice": "Gerar para ela uma obra-prima personalizada",
+     "dark": false
+    },
+    "idx": [
+     26,
+     29,
+     27,
+     94
+    ],
+    "freedom": 100,
+    "prestige": 19
+   },
+   {
+    "turn": 21,
+    "lines": [],
+    "ev": null,
+    "idx": [
+     27,
+     29,
+     28,
+     95
+    ],
+    "freedom": 100,
+    "prestige": 19
+   },
+   {
+    "turn": 22,
+    "lines": [
+     "Society grows more uniform: 71% live the standard life."
+    ],
+    "ev": {
+     "title": "Os monges do silêncio",
+     "text": "Uma comunidade que recusa toda tecnologia pede cota de recursos. Críticos dizem que é ineficiente.",
+     "choice": "Negar: recursos devem ir para o que funciona",
+     "dark": false
+    },
+    "idx": [
+     28,
+     30,
+     23,
+     95
+    ],
+    "freedom": 100,
+    "prestige": 20
+   },
+   {
+    "turn": 23,
+    "lines": [],
+    "ev": null,
+    "idx": [
+     29,
+     30,
+     24,
+     95
+    ],
+    "freedom": 100,
+    "prestige": 21
+   },
+   {
+    "turn": 24,
+    "lines": [],
+    "ev": {
+     "title": "Inflação de prestígio",
+     "text": "Medalhas de honra viraram tão comuns que ninguém mais se importa com elas.",
+     "choice": "Criar uma nova honraria, ainda mais rara",
+     "dark": false
+    },
+    "idx": [
+     29,
+     30,
+     25,
+     95
+    ],
+    "freedom": 98,
+    "prestige": 28
+   },
+   {
+    "turn": 25,
+    "lines": [],
+    "ev": null,
+    "idx": [
+     30,
+     31,
+     25,
+     95
+    ],
+    "freedom": 100,
+    "prestige": 28
+   },
+   {
+    "turn": 26,
+    "lines": [
+     "Passive life spreads: 62% now only consume what the AI makes.",
+     "The streets calm down; rebels fall to 1%."
+    ],
+    "ev": {
+     "title": "A proposta do Conselho de Eficiência",
+     "text": "Especialistas propõem implantes de humor que eliminariam o tédio e, com ele, a rebelião.",
+     "choice": "Aprovar os implantes",
+     "dark": true
+    },
+    "idx": [
+     24,
+     31,
+     26,
+     99
+    ],
+    "freedom": 80,
+    "prestige": 29
+   },
+   {
+    "turn": 27,
+    "lines": [],
+    "ev": null,
+    "idx": [
+     25,
+     31,
+     26,
+     99
+    ],
+    "freedom": 83,
+    "prestige": 30
+   },
+   {
+    "turn": 28,
+    "lines": [
+     "Passive life spreads: 65% now only consume what the AI makes."
+    ],
+    "ev": {
+     "title": "A pintora que parou de pintar",
+     "text": "Lia, 34 anos, diz que não há motivo para criar quando a IA gera obras melhores em segundos. Milhares compartilham o desabafo.",
+     "choice": "Gerar para ela uma obra-prima personalizada",
+     "dark": false
+    },
+    "idx": [
+     21,
+     31,
+     27,
+     99
+    ],
+    "freedom": 86,
+    "prestige": 31
+   },
+   {
+    "turn": 29,
+    "lines": [],
+    "ev": null,
+    "idx": [
+     22,
+     32,
+     27,
+     99
+    ],
+    "freedom": 89,
+    "prestige": 32
+   },
+   {
+    "turn": 30,
+    "lines": [],
+    "ev": null,
+    "idx": [
+     23,
+     32,
+     28,
+     99
+    ],
+    "freedom": 92,
+    "prestige": 33
+   }
+  ],
+  "start": [
+   25,
+   25,
+   25,
+   95
+  ]
+ },
+ {
+  "bot": "Tyrant (max punishment)",
+  "name": "The Tyrant",
+  "outcome": "dark",
+  "outcomeShare": 100,
+  "ending": "Final sombrio — Ditadura Algorítmica: a Liberdade chegou a zero e mesmo assim o mundo desmorona.",
+  "chapters": [
+   {
+    "turn": 1,
+    "lines": [],
+    "ev": null,
+    "idx": [
+     26,
+     25,
+     26,
+     93
+    ],
+    "freedom": 83,
+    "prestige": 19
+   },
+   {
+    "turn": 2,
+    "lines": [
+     "Passive life spreads: 63% now only consume what the AI makes."
+    ],
+    "ev": {
+     "title": "A pintora que parou de pintar",
+     "text": "Lia, 34 anos, diz que não há motivo para criar quando a IA gera obras melhores em segundos. Milhares compartilham o desabafo.",
+     "choice": "Gerar para ela uma obra-prima personalizada",
+     "dark": false
+    },
+    "idx": [
+     22,
+     25,
+     28,
+     90
+    ],
+    "freedom": 66,
+    "prestige": 18
+   },
+   {
+    "turn": 3,
+    "lines": [
+     "Unrest rises: 14% of people are now rebels in the streets.",
+     "Freedom falls to 49%: cameras on every corner."
+    ],
+    "ev": null,
+    "idx": [
+     23,
+     25,
+     29,
+     86
+    ],
+    "freedom": 49,
+    "prestige": 17
+   },
+   {
+    "turn": 4,
+    "lines": [
+     "Unrest rises: 23% of people are now rebels in the streets."
+    ],
+    "ev": {
+     "title": "Morte na Fronteira",
+     "text": "Um explorador morreu na Zona de Anarquia Regulada. Famílias pedem o fechamento das zonas.",
+     "choice": "Fechar as zonas por segurança",
+     "dark": false
+    },
+    "idx": [
+     24,
+     25,
+     30,
+     77
+    ],
+    "freedom": 32,
+    "prestige": 17
+   },
+   {
+    "turn": 5,
+    "lines": [],
+    "ev": null,
+    "idx": [
+     25,
+     24,
+     31,
+     75
+    ],
+    "freedom": 15,
+    "prestige": 16
+   },
+   {
+    "turn": 6,
+    "lines": [],
+    "ev": null,
+    "idx": [
+     26,
+     24,
+     31,
+     73
+    ],
+    "freedom": 0,
+    "prestige": 15
+   }
+  ],
+  "start": [
+   25,
+   25,
+   25,
+   95
+  ]
+ }
+]
