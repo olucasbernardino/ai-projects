@@ -1,0 +1,29 @@
+[
+  { "id": "early", "age_min": 0, "age_max": 5, "variants": [
+    { "weight": "electricity_access", "text": "early years at home, with electricity in the house" },
+    { "weight": "1 - electricity_access", "text": "early years at home, with no electricity in the house" }
+  ], "fallback": "early years at home" },
+  { "id": "primary", "age_min": 6, "age_max": 11, "variants": [
+    { "when": "decile <= 4", "text": "primary school, and chores before and after" },
+    { "when": "decile > 4", "text": "primary school and growing up" }
+  ], "fallback": "growing up" },
+  { "id": "teen", "age_min": 12, "age_max": 17, "variants": [
+    { "when": "flag.left_school && urban == 1", "text": "work in the city and helping at home" },
+    { "when": "flag.left_school && urban == 0", "text": "work in the fields and at the market" },
+    { "when": "!flag.left_school", "text": "secondary school" }
+  ], "fallback": "teenage years" },
+  { "id": "young_adult", "age_min": 18, "age_max": 24, "variants": [
+    { "when": "flag.further_study", "text": "study and part-time jobs" },
+    { "when": "flag.informal_work && !flag.further_study", "text": "work paid in cash, day by day" },
+    { "when": "flag.formal_work && !flag.further_study", "text": "work with a contract" },
+    { "when": "!flag.informal_work && !flag.formal_work && !flag.further_study", "text": "looking for steady work" }
+  ], "fallback": "early adult years" },
+  { "id": "adult", "age_min": 25, "age_max": 39, "variants": [
+    { "when": "buffer <= 0", "text": "work, family, and no savings to fall back on" },
+    { "when": "buffer > 0", "text": "work, family, and a little put aside" }
+  ], "fallback": "work and family" },
+  { "id": "mid", "age_min": 40, "age_max": 60, "variants": [
+    { "when": "buffer <= 0", "text": "work and caring for others, from month to month" },
+    { "when": "buffer > 0", "text": "work and caring for others" }
+  ], "fallback": "middle age" }
+]

@@ -1,0 +1,8 @@
+[
+  { "id": "SR-VITAL-2022", "name": "Imaginary Vital Statistics Office", "version": "2022.1", "date": "2022-03-15", "licence_note": "FAKE sandbox data. Not a real source. Do not cite." },
+  { "id": "SR-HHS-2021", "name": "Fictional Household Survey Consortium", "version": "3.1", "date": "2021-06-01", "licence_note": "FAKE sandbox data. Not a real source. Do not cite." },
+  { "id": "SR-MODEL-2022", "name": "Made-up Risk Modelling Group", "version": "1.4", "date": "2022-11-20", "licence_note": "FAKE sandbox data. Not a real source. Do not cite." },
+  { "id": "SR-EXPERT-2023", "name": "Pretend Governance Expert Panel", "version": "14", "date": "2023-02-28", "licence_note": "FAKE sandbox data. Not a real source. Do not cite." },
+  { "id": "SR-EVENTS-2023", "name": "Invented Event Monitor", "version": "5.2", "date": "2023-07-01", "licence_note": "FAKE sandbox data. Not a real source. Do not cite." },
+  { "id": "SR-OPINION-2022", "name": "Make-believe Opinion Barometer", "version": "wave 7", "date": "2022-09-10", "licence_note": "FAKE sandbox data. Not a real source. Do not cite." }
+]

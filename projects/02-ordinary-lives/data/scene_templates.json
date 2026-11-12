@@ -1,0 +1,786 @@
+[
+  {
+    "id": "clinic_far",
+    "title": "Falling ill as a small child",
+    "age_min": 0,
+    "age_max": 5,
+    "max_times": 1,
+    "odds": "annual(1 - health_coverage, 6)",
+    "claim_level": "simulation",
+    "content_warning": false,
+    "text": "You fall ill as a small child. The nearest care your household can get without paying is a long way off. In {country} around {year}, about {in100:health_coverage} in 100 people where you live could get essential care without paying.",
+    "choices_intro": "Your household's options",
+    "choices": [
+      {
+        "id": "pay_private",
+        "label": "Pay a private clinic nearby",
+        "cost": "Costs about a month of household income.",
+        "effects": {
+          "buffer": -1
+        }
+      },
+      {
+        "id": "travel_public",
+        "label": "Travel to the free public clinic",
+        "cost": "Costs two days of a parent's work and the fare.",
+        "effects": {}
+      },
+      {
+        "id": "home_care",
+        "label": "Care for you at home and wait",
+        "cost": "No money spent; recovery is slower and less certain.",
+        "effects": {}
+      }
+    ]
+  },
+  {
+    "id": "sibling_death",
+    "title": "A loss in the family",
+    "age_min": 2,
+    "age_max": 10,
+    "max_times": 1,
+    "odds": "per1000(child_mortality) * 0.3",
+    "claim_level": "simulation",
+    "content_warning": true,
+    "text": "A younger brother or sister dies before turning five. In {country} around {year}, about {per1000:child_mortality} of every 1,000 children did not reach their fifth birthday.",
+    "consequence_text": "For a year your parents work fewer days. The household's small savings are used up.",
+    "consequence_effects": {
+      "buffer": -1
+    },
+    "choices": []
+  },
+  {
+    "id": "school_pressure",
+    "title": "Leaving school",
+    "age_min": 11,
+    "age_max": 16,
+    "max_times": 1,
+    "odds": "annual(1 - school_completion, 6)",
+    "claim_level": "simulation",
+    "content_warning": false,
+    "text": "At {age}, the cost of school (fees, uniform, the hours you could be earning) becomes more than your household can carry. You leave school. In {country}, about {in100:school_completion} in 100 young people from households in your income group finish secondary school.",
+    "consequence_effects": {
+      "set": [
+        "left_school"
+      ]
+    },
+    "choices": [
+      {
+        "id": "work_relative",
+        "label": "Work alongside a relative",
+        "cost": "Long days; you bring in a small income.",
+        "effects": {
+          "buffer": 1
+        }
+      },
+      {
+        "id": "care_home",
+        "label": "Look after younger children so an adult can work",
+        "cost": "No pay of your own; one more adult earns.",
+        "effects": {
+          "buffer": 1
+        }
+      },
+      {
+        "id": "evening_study",
+        "label": "Keep studying in the evenings when you can",
+        "cost": "A small fee and very little rest.",
+        "effects": {
+          "set": [
+            "evening_study"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "finished_secondary",
+    "title": "Finishing secondary school",
+    "age_min": 18,
+    "age_max": 18,
+    "max_times": 1,
+    "requires": [
+      "school_completion"
+    ],
+    "odds": "flag.left_school ? 0 : 1",
+    "claim_level": "measured",
+    "content_warning": false,
+    "text": "You finish secondary school. In {country}, about {in100:school_completion} in 100 young people from households in your income group do.",
+    "consequence_effects": {
+      "set": [
+        "finished_secondary"
+      ]
+    },
+    "choices": [
+      {
+        "id": "look_work",
+        "label": "Look for work now",
+        "cost": "Income sooner.",
+        "effects": {}
+      },
+      {
+        "id": "further_study",
+        "label": "Try for further study",
+        "cost": "Several more years of low or no income.",
+        "effects": {
+          "buffer": -1,
+          "set": [
+            "further_study"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "first_work",
+    "title": "First steady work",
+    "age_min": 15,
+    "age_max": 24,
+    "max_times": 1,
+    "odds": "flag.left_school ? 1 : (age >= 19 ? 1 : 0)",
+    "claim_level": "measured",
+    "content_warning": false,
+    "variants": [
+      {
+        "id": "informal",
+        "weight": "informality",
+        "text": "Your first steady work has no contract: paid in cash, no sick pay, no pension record.",
+        "effects": {
+          "set": [
+            "informal_work"
+          ]
+        }
+      },
+      {
+        "id": "formal",
+        "weight": "1 - informality",
+        "text": "Your first steady work comes with a contract, sick pay and a pension record.",
+        "effects": {
+          "set": [
+            "formal_work"
+          ]
+        }
+      }
+    ],
+    "text": "{variant} In {country}, about {in100:informality} in 100 workers have no contract.",
+    "choices": [
+      {
+        "id": "stay_learn",
+        "label": "Stay and learn the work",
+        "cost": "Steady but low pay at first.",
+        "effects": {}
+      },
+      {
+        "id": "keep_looking",
+        "label": "Keep looking for something else",
+        "cost": "Some months with little or no pay.",
+        "effects": {
+          "buffer": -1
+        }
+      },
+      {
+        "id": "move_city",
+        "label": "Move to a city for work",
+        "cost": "Higher rent; you leave family support behind.",
+        "when": "urban == 0",
+        "effects": {
+          "urban": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "youth_jobless",
+    "title": "Out of work",
+    "age_min": 18,
+    "age_max": 25,
+    "max_times": 1,
+    "odds": "youth_unemployment * 0.2",
+    "claim_level": "simulation",
+    "content_warning": false,
+    "variants": [
+      {
+        "id": "benefit",
+        "weight": "social_protection_coverage",
+        "text": "You receive a small unemployment payment while you look."
+      },
+      {
+        "id": "no_benefit",
+        "weight": "1 - social_protection_coverage",
+        "text": "There is no payment you qualify for."
+      }
+    ],
+    "text": "You lose your work and cannot find more for months. {variant} In {country}, about {in100:youth_unemployment} in 100 young people looking for work cannot find any.",
+    "choices": [
+      {
+        "id": "any_work",
+        "label": "Take any short-term work",
+        "cost": "Unpredictable hours and pay.",
+        "effects": {}
+      },
+      {
+        "id": "family_help",
+        "label": "Ask family for help",
+        "cost": "Uses up their savings.",
+        "effects": {
+          "buffer": -1
+        }
+      },
+      {
+        "id": "retrain",
+        "label": "Spend the time retraining",
+        "cost": "Months of savings for a course.",
+        "effects": {
+          "buffer": -1,
+          "set": [
+            "retrained"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "health_cost",
+    "title": "A health bill",
+    "age_min": 19,
+    "age_max": 45,
+    "max_times": 1,
+    "odds": "annual(catastrophic_health_spending, 10)",
+    "claim_level": "measured",
+    "content_warning": false,
+    "text": "Someone in your household needs treatment. The bill is more than a quarter of what the household spends in a whole year. In {country}, about {in100:catastrophic_health_spending} in 100 households in your income group face a bill this size at least once in ten years.",
+    "consequence_effects": {
+      "set": [
+        "health_cost"
+      ]
+    },
+    "choices": [
+      {
+        "id": "borrow",
+        "label": "Borrow from relatives",
+        "cost": "A debt to family that takes years to repay.",
+        "effects": {
+          "buffer": -1
+        }
+      },
+      {
+        "id": "sell",
+        "label": "Sell tools, stock or animals",
+        "cost": "Less to earn with afterwards.",
+        "effects": {
+          "decile": -1
+        }
+      },
+      {
+        "id": "delay",
+        "label": "Delay the treatment",
+        "cost": "No money spent now; the illness may get worse.",
+        "effects": {}
+      }
+    ]
+  },
+  {
+    "id": "bribe_request",
+    "title": "A permit",
+    "age_min": 18,
+    "age_max": 45,
+    "max_times": 1,
+    "odds": "annual(bribery_experience, 28)",
+    "claim_level": "measured",
+    "content_warning": false,
+    "text": "An official says your permit will take months, unless you pay something extra. In {country}, about {in100:bribery_experience} in 100 adults say they have paid a bribe to an official at least once.",
+    "consequence_effects": {
+      "set": [
+        "bribe_asked"
+      ]
+    },
+    "choices": [
+      {
+        "id": "pay",
+        "label": "Pay",
+        "cost": "About a week's income.",
+        "effects": {
+          "set": [
+            "paid_bribe"
+          ]
+        }
+      },
+      {
+        "id": "refuse",
+        "label": "Refuse and wait",
+        "cost": "Months of delay and lost earnings.",
+        "effects": {
+          "buffer": -1
+        }
+      },
+      {
+        "id": "connections",
+        "label": "Ask someone with connections to help",
+        "cost": "You owe them a favour.",
+        "effects": {}
+      }
+    ]
+  },
+  {
+    "id": "police_mistreatment",
+    "title": "A police stop",
+    "age_min": 15,
+    "age_max": 45,
+    "max_times": 1,
+    "odds": "annual(police_mistreatment, 31)",
+    "claim_level": "measured",
+    "content_warning": true,
+    "context_indicators": [
+      "trust_police",
+      "rule_of_law"
+    ],
+    "text": "During a police stop near your home you are treated with force and humiliation. No one is charged. In {country}, about {in100:police_mistreatment} in 100 adults say this has happened to them at least once.",
+    "consequence_text": "You miss two days of work. For months you take a longer route to avoid that street.",
+    "consequence_effects": {
+      "set": [
+        "police_mistreatment"
+      ]
+    },
+    "choices": [
+      {
+        "id": "complain",
+        "label": "File a complaint",
+        "cost": "Hours of your time; experts rate the rule of law here at {score:rule_of_law} out of 1.",
+        "effects": {}
+      },
+      {
+        "id": "tell_family",
+        "label": "Tell your family and move on",
+        "cost": "Nothing more is spent.",
+        "effects": {}
+      },
+      {
+        "id": "community_group",
+        "label": "Ask a community group for help",
+        "cost": "Time, and your name becomes known to the group.",
+        "effects": {}
+      }
+    ]
+  },
+  {
+    "id": "discrimination",
+    "title": "Turned away",
+    "age_min": 16,
+    "age_max": 45,
+    "max_times": 1,
+    "odds": "annual(discrimination_experience, 30)",
+    "claim_level": "measured",
+    "content_warning": false,
+    "text": "You are turned away from a job or a flat, and the reason given points to who you are, not to what you can do. In {country}, about {in100:discrimination_experience} in 100 people of your sex say this has happened to them at least once.",
+    "consequence_effects": {
+      "set": [
+        "discrimination"
+      ]
+    },
+    "choices": [
+      {
+        "id": "apply_elsewhere",
+        "label": "Apply somewhere else",
+        "cost": "More weeks of searching.",
+        "effects": {}
+      },
+      {
+        "id": "report",
+        "label": "Report it to an authority",
+        "cost": "Time; the outcome is uncertain.",
+        "effects": {}
+      },
+      {
+        "id": "lower_offer",
+        "label": "Accept a worse offer from someone who will take you",
+        "cost": "Lower pay or a worse place to live.",
+        "effects": {
+          "decile": -1
+        }
+      }
+    ]
+  },
+  {
+    "id": "surveillance",
+    "title": "Read by someone else",
+    "age_min": 18,
+    "age_max": 60,
+    "max_times": 1,
+    "odds": "digital_surveillance * 0.01",
+    "claim_level": "simulation",
+    "content_warning": false,
+    "context_indicators": [
+      "freedom_expression"
+    ],
+    "text": "You learn that messages you sent were read by someone you never agreed to share them with: an employer, an agency, you are not told which. Experts rate the reach of monitoring in {country} at {score:digital_surveillance} out of 1.",
+    "consequence_effects": {
+      "set": [
+        "surveilled"
+      ]
+    },
+    "choices": [
+      {
+        "id": "change_writing",
+        "label": "Change what you write and to whom",
+        "cost": "Fewer open conversations.",
+        "effects": {}
+      },
+      {
+        "id": "carry_on",
+        "label": "Carry on as before",
+        "cost": "Nothing changes that you can see.",
+        "effects": {}
+      },
+      {
+        "id": "ask_why",
+        "label": "Ask for an explanation",
+        "cost": "Time; experts rate the rule of law here at {score:rule_of_law} out of 1.",
+        "effects": {}
+      }
+    ]
+  },
+  {
+    "id": "protest_nearby",
+    "title": "A protest in town",
+    "age_min": 16,
+    "age_max": 60,
+    "max_times": 1,
+    "odds": "protest_events / 400",
+    "claim_level": "simulation",
+    "content_warning": false,
+    "variants": [
+      {
+        "id": "permitted",
+        "weight": "freedom_expression",
+        "text": "It has a permit and the route is announced."
+      },
+      {
+        "id": "banned",
+        "weight": "1 - freedom_expression",
+        "text": "It has been declared illegal in advance."
+      }
+    ],
+    "text": "People in your town plan a protest about prices and wages. {variant} {country} records about {raw:protest_events} protests per million people a year.",
+    "choices": [
+      {
+        "id": "join",
+        "label": "Join it",
+        "cost": "A day's pay, and you are seen there.",
+        "effects": {
+          "set": [
+            "joined_protest"
+          ]
+        }
+      },
+      {
+        "id": "stay_home",
+        "label": "Stay home",
+        "cost": "Nothing spent.",
+        "effects": {}
+      },
+      {
+        "id": "help_quietly",
+        "label": "Help without going (food, passing on news)",
+        "cost": "A little money and time.",
+        "effects": {}
+      }
+    ]
+  },
+  {
+    "id": "protest_force",
+    "title": "The protest is broken up",
+    "age_min": 16,
+    "age_max": 60,
+    "max_times": 1,
+    "odds": "flag.joined_protest ? protest_repression_share : 0",
+    "claim_level": "simulation",
+    "content_warning": true,
+    "text": "Security forces break up the protest you joined. People are hurt and some are taken away. You get home. In {country}, about {in100:protest_repression_share} in 100 recorded protests are met with force or mass arrests.",
+    "consequence_text": "Your employer hears that you were there. You lose shifts for the rest of the season.",
+    "consequence_effects": {
+      "buffer": -1,
+      "set": [
+        "protest_force"
+      ]
+    },
+    "choices": [
+      {
+        "id": "lie_low",
+        "label": "Keep a low profile for a while",
+        "cost": "You step back from neighbours and groups you trusted.",
+        "effects": {}
+      },
+      {
+        "id": "support_detained",
+        "label": "Help the families of those taken away",
+        "cost": "Money and time; your name is known.",
+        "effects": {
+          "buffer": -1
+        }
+      }
+    ]
+  },
+  {
+    "id": "arbitrary_detention",
+    "title": "Held without charge",
+    "age_min": 18,
+    "age_max": 60,
+    "max_times": 1,
+    "odds": "per100k(arbitrary_detention)",
+    "claim_level": "simulation",
+    "content_warning": true,
+    "variants": [
+      {
+        "id": "lawyer",
+        "weight": "rule_of_law",
+        "text": "A lawyer finds you and you are released after a few days."
+      },
+      {
+        "id": "weeks",
+        "weight": "1 - rule_of_law",
+        "text": "You are released after several weeks, with no explanation."
+      }
+    ],
+    "text": "You are held by the authorities without charge. For the first days your family does not know where you are. {variant} A model estimates about {per100k:arbitrary_detention} in 100,000 people in {country} are held this way each year.",
+    "consequence_text": "The household loses your income while you are held, and your job is not kept open for you.",
+    "consequence_effects": {
+      "buffer": -1,
+      "decile": -1,
+      "set": [
+        "detained"
+      ]
+    },
+    "choices": [
+      {
+        "id": "find_work",
+        "label": "Look for work again straight away",
+        "cost": "Some employers will not take you now.",
+        "effects": {}
+      },
+      {
+        "id": "step_back",
+        "label": "Leave the groups and causes you were part of",
+        "cost": "You lose friendships and a voice you had.",
+        "effects": {}
+      },
+      {
+        "id": "move_away",
+        "label": "Move to another town for a while",
+        "cost": "Rent elsewhere, far from family.",
+        "effects": {
+          "buffer": -1
+        }
+      }
+    ]
+  },
+  {
+    "id": "violence_in_family",
+    "title": "A death in the family",
+    "age_min": 0,
+    "age_max": 60,
+    "max_times": 1,
+    "odds": "per100k(homicide_rate) * 15",
+    "claim_level": "simulation",
+    "content_warning": true,
+    "text": "Someone in your close family is killed in an act of violence. In {country}, about {per100k:homicide_rate} in 100,000 people are killed this way each year; this simulation assumes a close family of about 15 people.",
+    "consequence_text": "The household loses an earner and a carer. Plans for the year are put aside.",
+    "consequence_effects": {
+      "buffer": -1,
+      "decile": -1,
+      "set": [
+        "violence_in_family"
+      ]
+    },
+    "choices_intro": "Your household's options",
+    "choices": [
+      {
+        "id": "take_on_work",
+        "label": "Take on the work they did",
+        "cost": "Longer days for those left.",
+        "effects": {}
+      },
+      {
+        "id": "move_in",
+        "label": "Move in with relatives",
+        "cost": "Less space and less say over your own home.",
+        "effects": {}
+      },
+      {
+        "id": "seek_support",
+        "label": "Seek help from a support group or the authorities",
+        "cost": "Time and paperwork.",
+        "effects": {}
+      }
+    ]
+  },
+  {
+    "id": "fighting_nearby",
+    "title": "Fighting nearby",
+    "age_min": 0,
+    "age_max": 60,
+    "max_times": 2,
+    "odds": "min(0.5, per100k(conflict_deaths) * 400)",
+    "claim_level": "simulation",
+    "content_warning": true,
+    "text": "Fighting reaches your district. Markets and schools close and travel becomes dangerous. In {country}, about {per100k:conflict_deaths} in 100,000 people die in armed conflict each year.",
+    "consequence_text": "Work stops for weeks. Prices for food and fuel rise.",
+    "consequence_effects": {
+      "buffer": -1,
+      "set": [
+        "fighting_nearby"
+      ]
+    },
+    "choices_intro": "Your household's options",
+    "choices": [
+      {
+        "id": "stay",
+        "label": "Stay and keep the household going",
+        "cost": "You live with the danger; you keep your home.",
+        "effects": {}
+      },
+      {
+        "id": "send_children",
+        "label": "Send the children to relatives elsewhere",
+        "cost": "The family is split up for a time.",
+        "effects": {}
+      },
+      {
+        "id": "leave",
+        "label": "Leave for a safer town",
+        "cost": "You leave most of what you own.",
+        "effects": {
+          "decile": -1,
+          "set": [
+            "moved_away"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "displacement",
+    "title": "Forced to leave home",
+    "age_min": 0,
+    "age_max": 60,
+    "max_times": 1,
+    "odds": "displacement_risk",
+    "claim_level": "simulation",
+    "content_warning": true,
+    "text": "Your household is forced to leave its home, and most of what it owned stays behind. A model estimates about {in1000:displacement_risk} in 1,000 people in {country} are forced from their homes each year.",
+    "consequence_text": "Income falls; children change school; the household's savings are gone.",
+    "consequence_effects": {
+      "decile": -2,
+      "buffer": -3,
+      "set": [
+        "displaced"
+      ]
+    },
+    "choices_intro": "Your household's options",
+    "choices": [
+      {
+        "id": "relatives",
+        "label": "Stay with relatives",
+        "cost": "Crowded; you depend on their goodwill.",
+        "effects": {}
+      },
+      {
+        "id": "camp",
+        "label": "Go to a temporary site",
+        "cost": "Aid, but little privacy and no way to plan.",
+        "effects": {}
+      },
+      {
+        "id": "capital",
+        "label": "Head for the capital",
+        "cost": "Work may be easier to find; rent is high.",
+        "effects": {
+          "urban": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "disaster",
+    "title": "Storm or flood",
+    "age_min": 0,
+    "age_max": 60,
+    "max_times": 2,
+    "odds": "disaster_exposure",
+    "claim_level": "simulation",
+    "content_warning": false,
+    "text": "A storm or flood damages your home. A model estimates about {in100:disaster_exposure} in 100 people in {country} have their home damaged this way each year.",
+    "consequence_effects": {
+      "set": [
+        "disaster_hit"
+      ]
+    },
+    "choices_intro": "Your household's options",
+    "choices": [
+      {
+        "id": "rebuild_savings",
+        "label": "Rebuild with savings",
+        "cost": "The savings are gone.",
+        "effects": {
+          "buffer": -1
+        }
+      },
+      {
+        "id": "rebuild_loan",
+        "label": "Borrow to rebuild",
+        "cost": "Repayments for years.",
+        "effects": {
+          "decile": -1
+        }
+      },
+      {
+        "id": "patch",
+        "label": "Patch it up and live with the damage",
+        "cost": "A colder, wetter home.",
+        "effects": {}
+      }
+    ]
+  },
+  {
+    "id": "relative_emigrates",
+    "title": "Someone leaves for abroad",
+    "age_min": 10,
+    "age_max": 60,
+    "max_times": 1,
+    "odds": "emigration_rate",
+    "claim_level": "measured",
+    "content_warning": false,
+    "text": "A brother, sister or cousin leaves to live and work abroad. In {country}, about {in100:emigration_rate} in 100 households see someone leave in a given year.",
+    "consequence_effects": {
+      "set": [
+        "emigrant_in_family"
+      ]
+    },
+    "choices": [
+      {
+        "id": "remittances",
+        "label": "Rely on the money they send home",
+        "cost": "The household depends on one person far away.",
+        "effects": {
+          "buffer": 1
+        }
+      },
+      {
+        "id": "take_over",
+        "label": "Take over what they did at home",
+        "cost": "More work for you.",
+        "effects": {}
+      },
+      {
+        "id": "plan_follow",
+        "label": "Start planning to follow them",
+        "cost": "Savings put aside for the journey.",
+        "effects": {
+          "buffer": -1,
+          "set": [
+            "plans_to_emigrate"
+          ]
+        }
+      }
+    ]
+  }
+]

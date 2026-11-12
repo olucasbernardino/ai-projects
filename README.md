@@ -14,6 +14,7 @@ Every project here follows three promises:
 | # | Project | Area | Status |
 | --- | --- | --- | --- |
 | 01 | [Small businesses in Spain vs the EU](projects/01-spain-small-business/) | Data & reporting | In progress |
+| 02 | [Ordinary Lives (sandbox, fake data)](projects/02-ordinary-lives/) | Educational simulation | Prototype |
 
 ## How the work is done
 

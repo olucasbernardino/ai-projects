@@ -1,0 +1,14 @@
+[
+  { "id": "q_police_trust", "text": "How much do you trust the police where you live?", "answers": [
+    { "id": "a_lot", "label": "A lot" }, { "id": "somewhat", "label": "Somewhat" }, { "id": "not_much", "label": "Not much" }, { "id": "not_at_all", "label": "Not at all" } ] },
+  { "id": "q_speak_freely", "text": "Can people where you live say what they think about the government without fear?", "answers": [
+    { "id": "yes", "label": "Yes, mostly" }, { "id": "sometimes", "label": "Sometimes" }, { "id": "rarely", "label": "Rarely" }, { "id": "no", "label": "No" } ] },
+  { "id": "q_effort_luck", "text": "What matters more for getting ahead in life?", "answers": [
+    { "id": "hard_work", "label": "Hard work" }, { "id": "luck", "label": "Luck and connections" }, { "id": "both", "label": "Both equally" } ] },
+  { "id": "q_redistribution", "text": "Should the government reduce the differences between high and low incomes?", "answers": [
+    { "id": "strongly_agree", "label": "Strongly agree" }, { "id": "agree", "label": "Agree" }, { "id": "disagree", "label": "Disagree" }, { "id": "strongly_disagree", "label": "Strongly disagree" } ] },
+  { "id": "q_freedom_order", "text": "If you had to choose, which matters more: personal freedom, or order and safety?", "answers": [
+    { "id": "freedom", "label": "Personal freedom" }, { "id": "order", "label": "Order and safety" }, { "id": "cant_choose", "label": "I can't choose" } ] },
+  { "id": "q_children_future", "text": "Will children growing up today have a better or worse life than their parents?", "answers": [
+    { "id": "better", "label": "Better" }, { "id": "same", "label": "About the same" }, { "id": "worse", "label": "Worse" } ] }
+]

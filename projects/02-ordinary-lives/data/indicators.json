@@ -1,0 +1,231 @@
+[
+  {
+    "id": "urban_share",
+    "layer": "outcomes",
+    "data_type": "measured",
+    "max_claim_level": 3,
+    "unit": "share",
+    "description": "Share of people living in urban areas."
+  },
+  {
+    "id": "female_share",
+    "layer": "outcomes",
+    "data_type": "measured",
+    "max_claim_level": 3,
+    "unit": "share",
+    "description": "Share of births that are female."
+  },
+  {
+    "id": "gini",
+    "layer": "outcomes",
+    "data_type": "survey",
+    "max_claim_level": 2,
+    "unit": "index_0_1",
+    "description": "Income inequality (Gini index, 0 = equal, 1 = one household has everything)."
+  },
+  {
+    "id": "poverty_rate",
+    "layer": "outcomes",
+    "data_type": "survey",
+    "max_claim_level": 3,
+    "unit": "share",
+    "description": "Share of people below the national poverty line."
+  },
+  {
+    "id": "school_completion",
+    "layer": "outcomes",
+    "data_type": "survey",
+    "max_claim_level": 3,
+    "unit": "share",
+    "description": "Share of young people who finish secondary school, by household income group.",
+    "groups_by": "income"
+  },
+  {
+    "id": "health_coverage",
+    "layer": "constraints",
+    "data_type": "measured",
+    "max_claim_level": 3,
+    "unit": "share",
+    "description": "Share of people who can get essential health care without paying out of pocket, by urban/rural area.",
+    "groups_by": "area"
+  },
+  {
+    "id": "catastrophic_health_spending",
+    "layer": "outcomes",
+    "data_type": "survey",
+    "max_claim_level": 3,
+    "unit": "share",
+    "description": "Share of households that, at least once in the past 10 years, had health spending above 25% of their total yearly spending, by income group.",
+    "groups_by": "income"
+  },
+  {
+    "id": "informality",
+    "layer": "outcomes",
+    "data_type": "survey",
+    "max_claim_level": 3,
+    "unit": "share",
+    "description": "Share of workers with no contract, social insurance or pension record."
+  },
+  {
+    "id": "youth_unemployment",
+    "layer": "outcomes",
+    "data_type": "measured",
+    "max_claim_level": 3,
+    "unit": "share",
+    "description": "Share of people aged 15-24 in the labour force who are unemployed."
+  },
+  {
+    "id": "social_protection_coverage",
+    "layer": "constraints",
+    "data_type": "measured",
+    "max_claim_level": 3,
+    "unit": "share",
+    "description": "Share of unemployed people who receive any cash benefit."
+  },
+  {
+    "id": "homicide_rate",
+    "layer": "outcomes",
+    "data_type": "measured",
+    "max_claim_level": 3,
+    "unit": "per_100k",
+    "description": "Intentional homicides per 100,000 people per year."
+  },
+  {
+    "id": "bribery_experience",
+    "layer": "outcomes",
+    "data_type": "survey",
+    "max_claim_level": 3,
+    "unit": "share",
+    "description": "Share of adults aged 40-49 who say they have paid a bribe to a public official at least once in their adult life."
+  },
+  {
+    "id": "police_mistreatment",
+    "layer": "outcomes",
+    "data_type": "survey",
+    "max_claim_level": 3,
+    "unit": "share",
+    "description": "Share of adults aged 40-49 who say police have treated them with force or humiliation at least once in their life."
+  },
+  {
+    "id": "discrimination_experience",
+    "layer": "outcomes",
+    "data_type": "survey",
+    "max_claim_level": 3,
+    "unit": "share",
+    "description": "Share of adults aged 40-49 who say they have been refused a job, home or service because of who they are at least once, by sex.",
+    "groups_by": "sex"
+  },
+  {
+    "id": "digital_surveillance",
+    "layer": "constraints",
+    "data_type": "expert",
+    "max_claim_level": 2,
+    "unit": "index_0_1",
+    "description": "Expert-rated reach of state and private monitoring of personal communications (0 = none, 1 = pervasive)."
+  },
+  {
+    "id": "protest_events",
+    "layer": "constraints",
+    "data_type": "event",
+    "max_claim_level": 2,
+    "unit": "per_million",
+    "description": "Recorded protest events per million people per year."
+  },
+  {
+    "id": "protest_repression_share",
+    "layer": "constraints",
+    "data_type": "event",
+    "max_claim_level": 2,
+    "unit": "share",
+    "description": "Share of recorded protests met with force or mass arrests."
+  },
+  {
+    "id": "freedom_expression",
+    "layer": "constraints",
+    "data_type": "expert",
+    "max_claim_level": 2,
+    "unit": "index_0_1",
+    "description": "Expert-rated freedom of expression (0 = none, 1 = full)."
+  },
+  {
+    "id": "arbitrary_detention",
+    "layer": "constraints",
+    "data_type": "modelled",
+    "max_claim_level": 2,
+    "unit": "per_100k",
+    "description": "Modelled number of people held without charge or due process per 100,000 per year."
+  },
+  {
+    "id": "rule_of_law",
+    "layer": "constraints",
+    "data_type": "expert",
+    "max_claim_level": 2,
+    "unit": "index_0_1",
+    "description": "Expert-rated rule of law (0 = none, 1 = full)."
+  },
+  {
+    "id": "displacement_risk",
+    "layer": "outcomes",
+    "data_type": "modelled",
+    "max_claim_level": 2,
+    "unit": "share",
+    "description": "Modelled share of people forced to leave their home per year (conflict, disaster or eviction)."
+  },
+  {
+    "id": "conflict_deaths",
+    "layer": "outcomes",
+    "data_type": "event",
+    "max_claim_level": 3,
+    "unit": "per_100k",
+    "description": "Recorded deaths in organised armed conflict per 100,000 people per year."
+  },
+  {
+    "id": "emigration_rate",
+    "layer": "outcomes",
+    "data_type": "measured",
+    "max_claim_level": 3,
+    "unit": "share",
+    "description": "Share of households per year in which a member moves abroad to live or work."
+  },
+  {
+    "id": "disaster_exposure",
+    "layer": "outcomes",
+    "data_type": "modelled",
+    "max_claim_level": 2,
+    "unit": "share",
+    "description": "Modelled share of people whose home is damaged by a natural hazard per year."
+  },
+  {
+    "id": "electricity_access",
+    "layer": "outcomes",
+    "data_type": "measured",
+    "max_claim_level": 3,
+    "unit": "share",
+    "description": "Share of people with electricity at home, by urban/rural area.",
+    "groups_by": "area"
+  },
+  {
+    "id": "child_mortality",
+    "layer": "outcomes",
+    "data_type": "measured",
+    "max_claim_level": 3,
+    "unit": "per_1000",
+    "description": "Deaths before age five per 1,000 live births."
+  },
+  {
+    "id": "trust_police",
+    "layer": "opinions",
+    "data_type": "perceived",
+    "max_claim_level": 1,
+    "unit": "share",
+    "description": "Share of adults who say they trust the police (context only; never drives odds)."
+  },
+  {
+    "id": "democracy_satisfaction",
+    "layer": "opinions",
+    "data_type": "survey",
+    "max_claim_level": 1,
+    "unit": "share",
+    "description": "Share of adults satisfied with how their political system works (context only; never drives odds)."
+  }
+]

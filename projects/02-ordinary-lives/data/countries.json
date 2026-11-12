@@ -1,0 +1,14 @@
+{
+  "_note": "FICTIONAL countries for the sandbox. None of these places exist. Populations are invented.",
+  "world_population": 8100000000,
+  "countries": [
+    { "id": "NHV", "name": "Nordhavia", "archetype": "rich consolidated democracy", "population": 9200000, "notes": "Fictional. High incomes, strong institutions, small but non-zero rates of police mistreatment, discrimination and surveillance." },
+    { "id": "MRV", "name": "Merovia", "archetype": "middle-income hybrid regime", "population": 48000000, "notes": "Fictional. Elections exist but space for dissent has narrowed over time." },
+    { "id": "TSN", "name": "Tarsenne", "archetype": "closed autocracy with strong services", "population": 31000000, "notes": "Fictional. Schools and clinics reach almost everyone; independent surveys on policing and opinion are not allowed, so several indicators are missing." },
+    { "id": "QRV", "name": "Qarvesh", "archetype": "active conflict zone", "population": 22000000, "notes": "Fictional. Ongoing armed conflict; household surveys stopped, so several indicators are missing." },
+    { "id": "UBD", "name": "Ubendi", "archetype": "low-income stable democracy", "population": 64000000, "notes": "Fictional. Peaceful transfers of power, low incomes, mostly rural and informal work." },
+    { "id": "SLM", "name": "Solmira", "archetype": "high-inequality middle-income democracy", "population": 120000000, "notes": "Fictional. Large gaps between income groups; high homicide rate." },
+    { "id": "PLR", "name": "Pelora", "archetype": "small island state", "population": 310000, "notes": "Fictional. Small population, high exposure to storms, high emigration; some series start late." },
+    { "id": "DRV", "name": "Drevania", "archetype": "post-conflict recovery", "population": 14000000, "notes": "Fictional. War ended in the late 1990s; almost no survey data before 2000." }
+  ]
+}

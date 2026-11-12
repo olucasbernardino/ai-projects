@@ -1,0 +1,14 @@
+[
+  { "id": "finished_secondary", "flag": "finished_secondary", "label": "finished secondary school", "scenes": ["finished_secondary", "school_pressure"] },
+  { "id": "health_cost", "flag": "health_cost", "label": "faced a health bill bigger than a quarter of a year's household spending", "scenes": ["health_cost"] },
+  { "id": "informal_work", "flag": "informal_work", "label": "started working life with no contract", "scenes": ["first_work"] },
+  { "id": "bribe_asked", "flag": "bribe_asked", "label": "were asked for a bribe by an official", "scenes": ["bribe_request"] },
+  { "id": "police_mistreatment", "flag": "police_mistreatment", "label": "were treated with force or humiliation by police", "scenes": ["police_mistreatment"] },
+  { "id": "discrimination", "flag": "discrimination", "label": "were turned away because of who they are", "scenes": ["discrimination"] },
+  { "id": "surveilled", "flag": "surveilled", "label": "learned their messages had been read by others", "scenes": ["surveillance"] },
+  { "id": "detained", "flag": "detained", "label": "were held without charge", "scenes": ["arbitrary_detention"] },
+  { "id": "violence_in_family", "flag": "violence_in_family", "label": "lost a close family member to violence", "scenes": ["violence_in_family"] },
+  { "id": "displaced", "flag": "displaced", "label": "were forced to leave their home", "scenes": ["displacement"] },
+  { "id": "disaster_hit", "flag": "disaster_hit", "label": "had their home damaged by a storm or flood", "scenes": ["disaster"] },
+  { "id": "emigrant_in_family", "flag": "emigrant_in_family", "label": "saw a family member move abroad", "scenes": ["relative_emigrates"] }
+]

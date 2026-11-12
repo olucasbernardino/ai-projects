@@ -1,0 +1,608 @@
+[
+  {
+    "country": "NHV",
+    "question": "q_police_trust",
+    "year": 2022,
+    "sample_size": 1200,
+    "margin_of_error": 0.02829,
+    "shares": {
+      "a_lot": 0.369,
+      "somewhat": 0.451,
+      "not_much": 0.108,
+      "not_at_all": 0.072
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "NHV",
+    "question": "q_speak_freely",
+    "year": 2022,
+    "sample_size": 1200,
+    "margin_of_error": 0.02829,
+    "shares": {
+      "yes": 0.59818,
+      "sometimes": 0.34727,
+      "rarely": 0.02727,
+      "no": 0.02727
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "NHV",
+    "question": "q_effort_luck",
+    "year": 2022,
+    "sample_size": 1200,
+    "margin_of_error": 0.02829,
+    "shares": {
+      "hard_work": 0.55385,
+      "luck": 0.21538,
+      "both": 0.23077
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "NHV",
+    "question": "q_redistribution",
+    "year": 2022,
+    "sample_size": 1200,
+    "margin_of_error": 0.02829,
+    "shares": {
+      "strongly_agree": 0.25455,
+      "agree": 0.31818,
+      "disagree": 0.29091,
+      "strongly_disagree": 0.13636
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "NHV",
+    "question": "q_freedom_order",
+    "year": 2022,
+    "sample_size": 1200,
+    "margin_of_error": 0.02829,
+    "shares": {
+      "freedom": 0.58923,
+      "order": 0.31107,
+      "cant_choose": 0.0997
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "NHV",
+    "question": "q_children_future",
+    "year": 2022,
+    "sample_size": 1200,
+    "margin_of_error": 0.02829,
+    "shares": {
+      "better": 0.36,
+      "same": 0.3,
+      "worse": 0.34
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "MRV",
+    "question": "q_police_trust",
+    "year": 2022,
+    "sample_size": 1500,
+    "margin_of_error": 0.0253,
+    "shares": {
+      "a_lot": 0.135,
+      "somewhat": 0.165,
+      "not_much": 0.42,
+      "not_at_all": 0.28
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "MRV",
+    "question": "q_speak_freely",
+    "year": 2022,
+    "sample_size": 1500,
+    "margin_of_error": 0.0253,
+    "shares": {
+      "yes": 0.25455,
+      "sometimes": 0.2,
+      "rarely": 0.27273,
+      "no": 0.27273
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "MRV",
+    "question": "q_effort_luck",
+    "year": 2022,
+    "sample_size": 1500,
+    "margin_of_error": 0.0253,
+    "shares": {
+      "hard_work": 0.45385,
+      "luck": 0.31538,
+      "both": 0.23077
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "MRV",
+    "question": "q_redistribution",
+    "year": 2022,
+    "sample_size": 1500,
+    "margin_of_error": 0.0253,
+    "shares": {
+      "strongly_agree": 0.37273,
+      "agree": 0.31818,
+      "disagree": 0.17273,
+      "strongly_disagree": 0.13636
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "MRV",
+    "question": "q_freedom_order",
+    "year": 2022,
+    "sample_size": 1500,
+    "margin_of_error": 0.0253,
+    "shares": {
+      "freedom": 0.51792,
+      "order": 0.38436,
+      "cant_choose": 0.09772
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "MRV",
+    "question": "q_children_future",
+    "year": 2022,
+    "sample_size": 1500,
+    "margin_of_error": 0.0253,
+    "shares": {
+      "better": 0.49,
+      "same": 0.3,
+      "worse": 0.21
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "TSN",
+    "question": "q_effort_luck",
+    "year": 2022,
+    "sample_size": 1000,
+    "margin_of_error": 0.03099,
+    "shares": {
+      "hard_work": 0.49231,
+      "luck": 0.27692,
+      "both": 0.23077
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "TSN",
+    "question": "q_redistribution",
+    "year": 2022,
+    "sample_size": 1000,
+    "margin_of_error": 0.03099,
+    "shares": {
+      "strongly_agree": 0.32727,
+      "agree": 0.31818,
+      "disagree": 0.21818,
+      "strongly_disagree": 0.13636
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "TSN",
+    "question": "q_freedom_order",
+    "year": 2022,
+    "sample_size": 1000,
+    "margin_of_error": 0.03099,
+    "shares": {
+      "freedom": 0.5809,
+      "order": 0.31963,
+      "cant_choose": 0.09947
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "TSN",
+    "question": "q_children_future",
+    "year": 2022,
+    "sample_size": 1000,
+    "margin_of_error": 0.03099,
+    "shares": {
+      "better": 0.52,
+      "same": 0.3,
+      "worse": 0.18
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "QRV",
+    "question": "q_police_trust",
+    "year": 2022,
+    "sample_size": 800,
+    "margin_of_error": 0.03465,
+    "shares": {
+      "a_lot": 0.0675,
+      "somewhat": 0.0825,
+      "not_much": 0.51,
+      "not_at_all": 0.34
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "QRV",
+    "question": "q_speak_freely",
+    "year": 2022,
+    "sample_size": 800,
+    "margin_of_error": 0.03465,
+    "shares": {
+      "yes": 0.09545,
+      "sometimes": 0.13182,
+      "rarely": 0.38636,
+      "no": 0.38636
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "QRV",
+    "question": "q_effort_luck",
+    "year": 2022,
+    "sample_size": 800,
+    "margin_of_error": 0.03465,
+    "shares": {
+      "hard_work": 0.46154,
+      "luck": 0.30769,
+      "both": 0.23077
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "QRV",
+    "question": "q_freedom_order",
+    "year": 2022,
+    "sample_size": 800,
+    "margin_of_error": 0.03465,
+    "shares": {
+      "freedom": 0.27273,
+      "order": 0.63636,
+      "cant_choose": 0.09091
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "QRV",
+    "question": "q_children_future",
+    "year": 2022,
+    "sample_size": 800,
+    "margin_of_error": 0.03465,
+    "shares": {
+      "better": 0.15,
+      "same": 0.3,
+      "worse": 0.55
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "UBD",
+    "question": "q_police_trust",
+    "year": 2022,
+    "sample_size": 1400,
+    "margin_of_error": 0.02619,
+    "shares": {
+      "a_lot": 0.225,
+      "somewhat": 0.275,
+      "not_much": 0.3,
+      "not_at_all": 0.2
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "UBD",
+    "question": "q_speak_freely",
+    "year": 2022,
+    "sample_size": 1400,
+    "margin_of_error": 0.02619,
+    "shares": {
+      "yes": 0.44545,
+      "sometimes": 0.28182,
+      "rarely": 0.13636,
+      "no": 0.13636
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "UBD",
+    "question": "q_effort_luck",
+    "year": 2022,
+    "sample_size": 1400,
+    "margin_of_error": 0.02619,
+    "shares": {
+      "hard_work": 0.47692,
+      "luck": 0.29231,
+      "both": 0.23077
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "UBD",
+    "question": "q_redistribution",
+    "year": 2022,
+    "sample_size": 1400,
+    "margin_of_error": 0.02619,
+    "shares": {
+      "strongly_agree": 0.34545,
+      "agree": 0.31818,
+      "disagree": 0.2,
+      "strongly_disagree": 0.13636
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "UBD",
+    "question": "q_freedom_order",
+    "year": 2022,
+    "sample_size": 1400,
+    "margin_of_error": 0.02619,
+    "shares": {
+      "freedom": 0.52711,
+      "order": 0.37492,
+      "cant_choose": 0.09798
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "UBD",
+    "question": "q_children_future",
+    "year": 2022,
+    "sample_size": 1400,
+    "margin_of_error": 0.02619,
+    "shares": {
+      "better": 0.56,
+      "same": 0.3,
+      "worse": 0.14
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "SLM",
+    "question": "q_police_trust",
+    "year": 2022,
+    "sample_size": 1600,
+    "margin_of_error": 0.0245,
+    "shares": {
+      "a_lot": 0.1125,
+      "somewhat": 0.1375,
+      "not_much": 0.45,
+      "not_at_all": 0.3
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "SLM",
+    "question": "q_speak_freely",
+    "year": 2022,
+    "sample_size": 1600,
+    "margin_of_error": 0.0245,
+    "shares": {
+      "yes": 0.43273,
+      "sometimes": 0.27636,
+      "rarely": 0.14545,
+      "no": 0.14545
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "SLM",
+    "question": "q_effort_luck",
+    "year": 2022,
+    "sample_size": 1600,
+    "margin_of_error": 0.0245,
+    "shares": {
+      "hard_work": 0.36154,
+      "luck": 0.40769,
+      "both": 0.23077
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "SLM",
+    "question": "q_redistribution",
+    "year": 2022,
+    "sample_size": 1600,
+    "margin_of_error": 0.0245,
+    "shares": {
+      "strongly_agree": 0.48182,
+      "agree": 0.31818,
+      "disagree": 0.06364,
+      "strongly_disagree": 0.13636
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "SLM",
+    "question": "q_freedom_order",
+    "year": 2022,
+    "sample_size": 1600,
+    "margin_of_error": 0.0245,
+    "shares": {
+      "freedom": 0.28867,
+      "order": 0.61998,
+      "cant_choose": 0.09135
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "SLM",
+    "question": "q_children_future",
+    "year": 2022,
+    "sample_size": 1600,
+    "margin_of_error": 0.0245,
+    "shares": {
+      "better": 0.48,
+      "same": 0.3,
+      "worse": 0.22
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "PLR",
+    "question": "q_police_trust",
+    "year": 2022,
+    "sample_size": 400,
+    "margin_of_error": 0.049,
+    "shares": {
+      "a_lot": 0.324,
+      "somewhat": 0.396,
+      "not_much": 0.168,
+      "not_at_all": 0.112
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "PLR",
+    "question": "q_speak_freely",
+    "year": 2022,
+    "sample_size": 400,
+    "margin_of_error": 0.049,
+    "shares": {
+      "yes": 0.54727,
+      "sometimes": 0.32545,
+      "rarely": 0.06364,
+      "no": 0.06364
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "PLR",
+    "question": "q_effort_luck",
+    "year": 2022,
+    "sample_size": 400,
+    "margin_of_error": 0.049,
+    "shares": {
+      "hard_work": 0.48462,
+      "luck": 0.28462,
+      "both": 0.23077
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "PLR",
+    "question": "q_redistribution",
+    "year": 2022,
+    "sample_size": 400,
+    "margin_of_error": 0.049,
+    "shares": {
+      "strongly_agree": 0.33636,
+      "agree": 0.31818,
+      "disagree": 0.20909,
+      "strongly_disagree": 0.13636
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "PLR",
+    "question": "q_freedom_order",
+    "year": 2022,
+    "sample_size": 400,
+    "margin_of_error": 0.049,
+    "shares": {
+      "freedom": 0.55263,
+      "order": 0.34868,
+      "cant_choose": 0.09868
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "PLR",
+    "question": "q_children_future",
+    "year": 2022,
+    "sample_size": 400,
+    "margin_of_error": 0.049,
+    "shares": {
+      "better": 0.45,
+      "same": 0.3,
+      "worse": 0.25
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "DRV",
+    "question": "q_police_trust",
+    "year": 2022,
+    "sample_size": 900,
+    "margin_of_error": 0.03267,
+    "shares": {
+      "a_lot": 0.18,
+      "somewhat": 0.22,
+      "not_much": 0.36,
+      "not_at_all": 0.24
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "DRV",
+    "question": "q_speak_freely",
+    "year": 2022,
+    "sample_size": 900,
+    "margin_of_error": 0.03267,
+    "shares": {
+      "yes": 0.35,
+      "sometimes": 0.24091,
+      "rarely": 0.20455,
+      "no": 0.20455
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "DRV",
+    "question": "q_effort_luck",
+    "year": 2022,
+    "sample_size": 900,
+    "margin_of_error": 0.03267,
+    "shares": {
+      "hard_work": 0.46923,
+      "luck": 0.3,
+      "both": 0.23077
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "DRV",
+    "question": "q_redistribution",
+    "year": 2022,
+    "sample_size": 900,
+    "margin_of_error": 0.03267,
+    "shares": {
+      "strongly_agree": 0.35455,
+      "agree": 0.31818,
+      "disagree": 0.19091,
+      "strongly_disagree": 0.13636
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "DRV",
+    "question": "q_freedom_order",
+    "year": 2022,
+    "sample_size": 900,
+    "margin_of_error": 0.03267,
+    "shares": {
+      "freedom": 0.48387,
+      "order": 0.41935,
+      "cant_choose": 0.09677
+    },
+    "source_release_id": "SR-OPINION-2022"
+  },
+  {
+    "country": "DRV",
+    "question": "q_children_future",
+    "year": 2022,
+    "sample_size": 900,
+    "margin_of_error": 0.03267,
+    "shares": {
+      "better": 0.52,
+      "same": 0.3,
+      "worse": 0.18
+    },
+    "source_release_id": "SR-OPINION-2022"
+  }
+]
